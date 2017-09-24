@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UserData</title>
+    <title>WalletData</title>
 </head>
 <body class="container">
 <#include "templates/header.ftl">

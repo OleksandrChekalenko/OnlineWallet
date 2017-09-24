@@ -1,7 +1,6 @@
 package com.test.bu.service;
 
 import com.test.bu.entity.Goods;
-import com.test.bu.entity.User;
 
 import java.util.List;
 
@@ -11,9 +10,9 @@ public interface GoodsService {
 
     List<Goods> getAll();
 
-    void save(Goods user);
+    void save(Goods wallet);
 
     void delete(int id);
 
-    void update(Goods user);
+    void update(Goods wallet);
 }

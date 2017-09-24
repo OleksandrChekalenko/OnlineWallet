@@ -2,40 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UserData</title>
+    <title>WalletData</title>
 </head>
 <body class="container">
 <#include "templates/header.ftl">
 <div class="table-responsive">
-    <caption>User info</caption>
+    <caption>Wallet info</caption>
     <table class="table table-striped">
         <tr>
             <td>Id</td>
-            <td>${user.id}</a></td>
+            <td>${wallet.id}</a></td>
         </tr>
         <tr>
             <td>Name</td>
-            <td>${user.name}</td>
+            <td>${wallet.name}</td>
         </tr>
         <tr>
             <td>Email</td>
-            <td>${user.email}</td>
+            <td>${wallet.email}</td>
         </tr>
         <td>Age</td>
-        <td>${user.age}</td>
+        <td>${wallet.age}</td>
         </tr>
     </table>
 </div>
 
 <div class="table-responsive">
-    <caption>User goods</caption>
+    <caption>Wallet goods</caption>
     <table class="table table-striped">
         <tr>
             <td>Id</td>
             <td>Name</a></td>
             <td>Price</a></td>
         </tr>
-    <#list user.goodsList as goods>
+    <#list wallet.goodsList as goods>
         <tr>
             <td>${goods.id}</td>
             <td>${goods.name}</td>
@@ -47,6 +47,6 @@
 
     </table>
 </div>
-<a type="button" href="/users" class="button">Back</a>
+<a type="button" href="/wallets" class="button">Back</a>
 </body>
 </html>

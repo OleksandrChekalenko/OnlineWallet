@@ -1,4 +1,4 @@
-<form action="/newUser" method="post" name="user" class="form-group">
+<form action="/newWallet" method="post" name="wallet" class="form-group">
     <p>Name</p>
     <input title="Name" type="text" name="name"/>
     <p>Email</p>

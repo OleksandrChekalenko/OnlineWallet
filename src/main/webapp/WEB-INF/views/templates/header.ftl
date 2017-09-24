@@ -13,7 +13,7 @@
             <a class="navbar-brand" href="/">Home page(templates/header.ftl)</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
-            <li class="active"><a href="/users">Users</a></li>
+            <li class="active"><a href="/wallets">Wallets</a></li>
             <li class=""><a href="/goodsList">Goods</a></li>
         </ul>
     </div>

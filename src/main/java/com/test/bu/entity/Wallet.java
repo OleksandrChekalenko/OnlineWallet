@@ -5,8 +5,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "wallet")
+public class Wallet {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -18,7 +18,7 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER)
     private List<Goods> goodsList;
 
-    public User() {
+    public Wallet() {
     }
 
     public int getId() {
@@ -71,7 +71,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Wallet{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

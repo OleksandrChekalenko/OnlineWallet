@@ -1,9 +1,7 @@
 package com.test.bu.service;
 
 import com.test.bu.dao.GoodsDao;
-import com.test.bu.dao.UserDao;
 import com.test.bu.entity.Goods;
-import com.test.bu.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +24,8 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public void save(Goods goods) {
-        goodsDao.save(goods);
+    public void save(Goods wallet) {
+        goodsDao.save(wallet);
     }
 
     @Override
@@ -36,7 +34,7 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public void update(Goods goods) {
+    public void update(Goods wallet) {
 
     }
 

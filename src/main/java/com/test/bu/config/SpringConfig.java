@@ -3,12 +3,12 @@ package com.test.bu.config;
 
 import com.test.bu.dao.GoodsDao;
 import com.test.bu.dao.GoodsDaoImp;
-import com.test.bu.dao.UserDao;
-import com.test.bu.dao.UserDaoIml;
+import com.test.bu.dao.WalletDao;
+import com.test.bu.dao.WalletDaoIml;
 import com.test.bu.service.GoodsService;
 import com.test.bu.service.GoodsServiceImpl;
-import com.test.bu.service.UserService;
-import com.test.bu.service.UserServiceImpl;
+import com.test.bu.service.WalletService;
+import com.test.bu.service.WalletServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,13 +16,13 @@ import org.springframework.context.annotation.Configuration;
 public class SpringConfig {
 
     @Bean
-    public UserService getUserService() {
-        return new UserServiceImpl();
+    public WalletService getWalletService() {
+        return new WalletServiceImpl();
     }
 
     @Bean
-    public UserDao getUserDao() {
-        return new UserDaoIml();
+    public WalletDao getWalletDao() {
+        return new WalletDaoIml();
     }
 
     @Bean
