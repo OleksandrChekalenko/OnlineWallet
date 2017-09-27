@@ -20,9 +20,9 @@ public class WalletController {
         return "index";
     }
 
-    @GetMapping("/wallets/{walletsNumber}")
-    public String getWalletByNumber(@PathVariable("walletsNumber") int number, Model model) {
-        model.addAttribute("wallet", walletService.getById(number));
+    @GetMapping("/wallets/{NUMBER}")
+    public String getWalletByNumber(@PathVariable("NUMBER") int number, Model model) {
+        model.addAttribute("wallet", walletService.getByNumber(number));
         return "showWallet";
     }
 
@@ -38,27 +38,27 @@ public class WalletController {
         return "redirect:wallets";
     }
 
-    @GetMapping("/edit/{id}")
-    public String editPage(@PathVariable("id") int id, Model model) {
-        System.out.println("id = " + id);
-        model.addAttribute("wallet", walletService.getById(id));
+    @GetMapping("/edit/{NUMBER}")
+    public String editPage(@PathVariable("NUMBER") int number, Model model) {
+        System.out.println("number = " + number);
+        model.addAttribute("wallet", walletService.getByNumber(number));
         return "editWallet";
     }
 
     @PostMapping("/editWallet")
     public String editWallet(@ModelAttribute Wallet wallet, Model model) {
         walletService.update(wallet);
-        return "redirect:edit/" + wallet.getId();
+        return "redirect:edit/" + wallet.getNumber();
     }
 
-    @GetMapping("/delete/{walletNumber}")
-    public String deleteWallet(@PathVariable("walletNumber") int number) {
+    @GetMapping("/delete/{NUMBER}")
+    public String deleteWallet(@PathVariable("NUMBER") int number) {
         walletService.delete(number);
         return "redirect:/wallets";
     }
 
     @PostMapping("/delete")
-    public String deleteNumber2(@ModelAttribute("id") int number) {
+    public String deleteNumber2(@ModelAttribute("NUMBER") int number) {
         walletService.delete(number);
         return "redirect:wallets";
     }

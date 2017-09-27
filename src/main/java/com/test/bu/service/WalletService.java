@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface WalletService {
 
-    Wallet getById(int id);
+    Wallet getByNumber(int number);
 
     List<Wallet> getAll();
 
     void save(Wallet wallet);
 
-    void delete(int id);
+    void delete(int number);
 
     void update(Wallet wallet);
 }

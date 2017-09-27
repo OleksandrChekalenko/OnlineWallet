@@ -18,7 +18,7 @@
     <#list goodsList as goods>
         <tr>
             <td>${goods.id}</td>
-            <td>${goods.name}</td>
+            <td>${goods.number}</td>
             <td>${goods.price}</td>
 
         </tr>

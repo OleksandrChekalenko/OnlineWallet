@@ -14,8 +14,8 @@ public class WalletServiceImpl implements WalletService {
     private WalletDao walletDao;
 
     @Override
-    public Wallet getById(int id) {
-        return walletDao.getWalletByNumber(id);
+    public Wallet getByNumber(int number) {
+        return walletDao.getWalletByNumber(number);
     }
 
     @Override
@@ -29,8 +29,8 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public void delete(int id) {
-        walletDao.delete(id);
+    public void delete(int number) {
+        walletDao.delete(number);
     }
 
     @Override

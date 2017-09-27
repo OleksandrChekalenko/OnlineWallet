@@ -5,16 +5,16 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "wallet")
+@Table(name = "WALLET")
 public class Wallet {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
-    private String name;
-    private String email;
-    private int age;
-    private String phoneNumber;
+    @Column(name = "NUMBER")
+    private Integer number;
+    @Column(name = "TYPE")
+    private String type;
     @OneToMany(fetch = FetchType.EAGER)
     private List<Goods> goodsList;
 
@@ -29,36 +29,19 @@ public class Wallet {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
-    public String getEmail() {
-        return email;
+    public String getType() {        return type;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public List<Goods> getGoodsList() {
@@ -71,11 +54,12 @@ public class Wallet {
 
     @Override
     public String toString() {
-        return "Wallet{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", age=" + age +
-                '}';
+        final StringBuffer sb = new StringBuffer("Wallet{");
+        sb.append("id=").append(id);
+        sb.append(", number=").append(number);
+        sb.append(", type='").append(type).append('\'');
+        sb.append(", goodsList=").append(goodsList);
+        sb.append('}');
+        return sb.toString();
     }
 }

@@ -20,8 +20,8 @@ public class WalletDaoIml implements WalletDao {
 
     @Override
     public Wallet getWalletByNumber(int number) {
-        return entityManager.createQuery("SELECT w FROM Wallets w WHERE walletNumber=:walletNumber", Wallet.class)
-                .setParameter("walletNumber", number)
+        return entityManager.createQuery("SELECT w FROM Wallet w WHERE NUMBER=:NUMBER", Wallet.class)
+                .setParameter("NUMBER", number)
                 .getSingleResult();
     }
 
@@ -37,12 +37,9 @@ public class WalletDaoIml implements WalletDao {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int number) {
+        entityManager.remove(number);
     }
 
-    @Override
-    public void delete(String name) {
-
-    }
 
 }

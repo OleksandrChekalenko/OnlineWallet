@@ -15,11 +15,11 @@
         </tr>
         <tr>
             <td>Name</td>
-            <td>${wallet.name}</td>
+            <td>${wallet.number}</td>
         </tr>
         <tr>
             <td>Email</td>
-            <td>${wallet.email}</td>
+            <td>${wallet.type}</td>
         </tr>
         <td>Age</td>
         <td>${wallet.age}</td>
@@ -38,7 +38,7 @@
     <#list wallet.goodsList as goods>
         <tr>
             <td>${goods.id}</td>
-            <td>${goods.name}</td>
+            <td>${goods.number}</td>
             <td>${goods.price}</td>
         </tr>
     <#else>
