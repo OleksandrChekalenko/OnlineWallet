@@ -1,7 +1,7 @@
 package com.test.bu.controller;
 
 
-import com.test.bu.service.GoodsService;
+import com.test.bu.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class GoodsController {
+public class UsersController {
 
     @Autowired
-    private GoodsService goodsService;
+    private UsersService usersService;
 
-    @GetMapping("/goodsList")
-    public String getAllGoods(Model model) {
-        model.addAttribute("goodsList", goodsService.getAll());
-        return "goodsList";
+    @GetMapping("/usersList")
+    public String getAllUsers(Model model) {
+        model.addAttribute("usersList", usersService.getAll());
+        return "usersList";
     }
 
 }

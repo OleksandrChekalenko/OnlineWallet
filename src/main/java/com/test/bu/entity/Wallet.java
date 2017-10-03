@@ -11,12 +11,10 @@ public class Wallet {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
-    @Column(name = "NUMBER")
     private Integer number;
-    @Column(name = "TYPE")
     private String type;
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Goods> goodsList;
+    /*@OneToMany(fetch = FetchType.EAGER)
+    private List<Users> usersList;*/
 
     public Wallet() {
     }
@@ -44,13 +42,13 @@ public class Wallet {
         this.type = type;
     }
 
-    public List<Goods> getGoodsList() {
-        return goodsList;
+    /*public List<Users> getUsersList() {
+        return usersList;
     }
 
-    public void setGoodsList(List<Goods> goodsList) {
-        this.goodsList = goodsList;
-    }
+    public void setUsersList(List<Users> usersList) {
+        this.usersList = usersList;
+    }*/
 
     @Override
     public String toString() {
@@ -58,7 +56,6 @@ public class Wallet {
         sb.append("id=").append(id);
         sb.append(", number=").append(number);
         sb.append(", type='").append(type).append('\'');
-        sb.append(", goodsList=").append(goodsList);
         sb.append('}');
         return sb.toString();
     }

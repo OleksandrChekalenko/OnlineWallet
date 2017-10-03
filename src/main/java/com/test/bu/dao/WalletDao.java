@@ -14,5 +14,5 @@ public interface WalletDao {
 
     List<Wallet> getAll();
 
-    void delete(int id);
+    void delete(int number);
 }

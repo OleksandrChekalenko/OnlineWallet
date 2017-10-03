@@ -35,7 +35,7 @@ public class JpaConfig {
         Properties properties = new Properties();
         /*properties.setProperty("hibernate.hbm2ddl.auto", "validate");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");*/
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");
+        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         return properties;
     }
@@ -43,7 +43,7 @@ public class JpaConfig {
     @Bean
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/demo?walletSll=false&createDatabaseIfNotExist=true");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/onlinewalletdb?walletSll=false&createDatabaseIfNotExist=true");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");

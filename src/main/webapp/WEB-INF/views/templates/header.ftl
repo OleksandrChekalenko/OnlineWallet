@@ -13,8 +13,8 @@
             <a class="navbar-brand" href="/">Home page(templates/header.ftl)</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
+            <li class=""><a href="/usersList">Users</a></li>
             <li class=""><a href="/wallets">Wallets</a></li>
-            <li class=""><a href="/goodsList">Goods</a></li>
         </ul>
     </div>
 </nav>

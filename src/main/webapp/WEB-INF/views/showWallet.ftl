@@ -28,21 +28,21 @@
 </div>
 
 <div class="table-responsive">
-    <caption>Wallet goods</caption>
+    <caption>Wallet users</caption>
     <table class="table table-striped">
         <tr>
             <td>Id</td>
             <td>Name</a></td>
             <td>Price</a></td>
         </tr>
-    <#list wallet.goodsList as goods>
+    <#list wallet.usersList as users>
         <tr>
-            <td>${goods.id}</td>
-            <td>${goods.number}</td>
-            <td>${goods.price}</td>
+            <td>${users.id}</td>
+            <td>${users.number}</td>
+            <td>${users.price}</td>
         </tr>
     <#else>
-        <h1>Empty goods</h1>
+        <h1>Empty users</h1>
     </#list>
 
     </table>

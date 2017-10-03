@@ -7,20 +7,20 @@
 <body class="container">
 <#include "templates/header.ftl">
 <div class="table-responsive">
-    <caption>Goods list</caption>
+    <caption>Users list</caption>
     <table class="table table-striped">
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Price</th>
-            <#--<th>Merchant</th>-->
+            <th>First name</th>
+            <th>Phone number</th>
         </tr>
-    <#list goodsList as goods>
+    <#list usersList as users>
         <tr>
-            <td>${goods.id}</td>
-            <td>${goods.number}</td>
-            <td>${goods.price}</td>
-
+            <td>${users.id}</td>
+            <td>${users.name}</td>
+            <td>${users.firstName}</td>
+            <td>${users.phoneNumber}</td>
         </tr>
     </#list>
     </table>
