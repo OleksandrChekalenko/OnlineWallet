@@ -19,7 +19,7 @@
     </build>
     <packaging>war</packaging>
 
-    <number>firstTry</number>
+    <name>firstTry</name>
     <url>http://maven.apache.org</url>
 
     <properties>

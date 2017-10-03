@@ -21,7 +21,7 @@
             <td>${wallet.number}</td>
             <td>${wallet.type}</td>
             <td><a href="/delete/${wallet.number}">Delete</a>
-                <a href="/edit/${wallet.number}">Edit</a>
+                <#--<a href="/edit/${wallet.number}">Edit</a>-->
             </td>
         </tr>
     </#list>

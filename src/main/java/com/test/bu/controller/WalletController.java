@@ -51,8 +51,8 @@ public class WalletController {
         return "redirect:edit/" + wallet.getNumber();
     }
 
-    @GetMapping("/delete/{NUMBER}")
-    public String deleteWallet(@PathVariable("NUMBER") int number) {
+    @GetMapping("/delete/{number}")
+    public String deleteWallet(@PathVariable("number") int number) {
         walletService.delete(number);
         return "redirect:/wallets";
     }
