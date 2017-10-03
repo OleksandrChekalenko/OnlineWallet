@@ -7,46 +7,48 @@
 <body class="container">
 <#include "templates/header.ftl">
 <div class="table-responsive">
-    <caption>Wallet info</caption>
+    <caption>User info</caption>
     <table class="table table-striped">
         <tr>
             <td>Id</td>
-            <td>${wallet.id}</a></td>
+            <td>${user.id}</a></td>
         </tr>
         <tr>
             <td>Name</td>
-            <td>${wallet.number}</td>
+            <td>${user.number}</td>
         </tr>
         <tr>
-            <td>Email</td>
-            <td>${wallet.type}</td>
+            <td>First name</td>
+            <td>${user.firstName}</td>
         </tr>
-        <td>Age</td>
-        <td>${wallet.age}</td>
+        <td>Phone number</td>
+        <td>${user.phoneNumber}</td>
         </tr>
     </table>
 </div>
 
 <div class="table-responsive">
-    <caption>Wallet users</caption>
+    <caption>Users</caption>
     <table class="table table-striped">
         <tr>
             <td>Id</td>
             <td>Name</a></td>
-            <td>Price</a></td>
+            <td>First name</a></td>
+            <td>Phone number</a></td>
         </tr>
-    <#list wallet.walletList as wallets>
+    <#list user.usersList as users>
         <tr>
-            <td>${wallets.id}</td>
-            <td>${wallets.number}</td>
-            <td>${wallets.price}</td>
+            <td>${users.id}</td>
+            <td>${users.name}</td>
+            <td>${users.firstName}</td>
+            <td>${users.phoneNumber}</td>
         </tr>
     <#else>
-        <h1>Empty wallets</h1>
+        <h1>Empty users</h1>
     </#list>
 
     </table>
 </div>
-<a type="button" href="/wallets" class="button">Back</a>
+<a type="button" href="/users" class="button">Back</a>
 </body>
 </html>

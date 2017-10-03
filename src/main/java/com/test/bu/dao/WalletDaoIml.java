@@ -36,9 +36,14 @@ public class WalletDaoIml implements WalletDao {
         return entityManager.createQuery("SELECT w FROM Wallet w", Wallet.class).getResultList();
     }
 
-    @Override
+    /*@Override
     public void delete(int number) {
         entityManager.remove(number);
+    }*/
+
+    @Override
+    public void delete(Wallet walletByNumber) {
+        entityManager.remove(walletByNumber);
     }
 
 

@@ -4,6 +4,7 @@ import com.test.bu.entity.Users;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 public class UsersDaoImp implements UsersDao {
@@ -13,6 +14,7 @@ public class UsersDaoImp implements UsersDao {
 
 
     @Override
+    @Transactional
     public void save(Users users) {
         entityManager.persist(users);
     }
@@ -36,6 +38,10 @@ public class UsersDaoImp implements UsersDao {
 
     @Override
     public void delete(int id) {
-
+        entityManager.remove(id);
     }
+    /*@Override
+    public void delete(Wallet walletByNumber) {
+        entityManager.remove(walletByNumber);
+    }*/
 }
