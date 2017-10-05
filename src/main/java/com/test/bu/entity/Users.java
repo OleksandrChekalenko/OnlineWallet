@@ -14,7 +14,7 @@ public class Users {
     private String firstName;
     private String phoneNumber;
     @OneToMany(fetch = FetchType.EAGER, targetEntity = Wallet.class)
-    @JoinColumn(name = "walletsList_id")
+    @JoinColumn(name = "user_id")
     private List<Wallet> walletsList;
 
     public Users() {
@@ -24,6 +24,14 @@ public class Users {
         this.name = name;
         this.firstName = firstName;
         this.phoneNumber = phoneNumber;
+    }
+
+    public List<Wallet> getWalletsList() {
+        return walletsList;
+    }
+
+    public void setWalletsList(List<Wallet> walletsList) {
+        this.walletsList = walletsList;
     }
 
     public int getId() {

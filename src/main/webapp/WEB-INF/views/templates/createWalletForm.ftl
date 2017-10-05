@@ -6,6 +6,12 @@
         <option >VISA</option>
         <option >MASTERCARD</option>
     </select>
+    <p>Currency</p>
+    <select name="walletCurrency">
+        <option>UAH</option>
+        <option>USD</option>
+        <option>EUR</option>
+    </select>
     <#--<input title="Type" type="text" name="type"/>-->
         <input type="submit" value="OK"/>
 </form>

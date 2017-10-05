@@ -13,10 +13,20 @@ public class Wallet {
     private int id;
     private Integer number;
     private String type;
+    private String walletCurrency;
+
     /*@OneToMany(fetch = FetchType.EAGER)
     private List<Users> usersList;*/
 
     public Wallet() {
+    }
+
+    public String getWalletCurrency() {
+        return walletCurrency;
+    }
+
+    public void setWalletCurrency(String walletCurrency) {
+        this.walletCurrency = walletCurrency;
     }
 
     public int getId() {
