@@ -5,6 +5,7 @@ import com.test.bu.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -24,13 +25,14 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public void save(Users wallet) {
-        usersDao.save(wallet);
+    public void save(Users user) {
+        usersDao.save(user);
     }
 
     @Override
+    @Transactional
     public void delete(int id) {
-        usersDao.delete(id);
+        usersDao.delete(usersDao.getUsersById(id));
     }
 
     @Override

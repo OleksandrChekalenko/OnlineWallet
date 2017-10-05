@@ -20,7 +20,7 @@
             <#--<td><a href="/wallet/${wallet.id}">${wallet.id}</a></td>-->
             <td>${wallet.number}</td>
             <td>${wallet.type}</td>
-            <td><a href="/delete/${wallet.number}">Delete</a>
+            <td><a href="wallets/delete/${wallet.number}">Delete</a>
                 <#--<a href="/edit/${wallet.number}">Edit</a>-->
             </td>
         </tr>

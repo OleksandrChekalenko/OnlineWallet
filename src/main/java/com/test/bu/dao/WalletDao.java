@@ -16,5 +16,5 @@ public interface WalletDao {
 
    // void delete(int number);
 
-    void delete(Wallet walletByNumber);
+    void delete(int walletByNumber);
 }

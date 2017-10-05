@@ -42,8 +42,8 @@ public class WalletDaoIml implements WalletDao {
     }*/
 
     @Override
-    public void delete(Wallet walletByNumber) {
-        entityManager.remove(walletByNumber);
+    public void delete(int walletByNumber) {
+        entityManager.remove(getWalletByNumber(walletByNumber));
     }
 
 

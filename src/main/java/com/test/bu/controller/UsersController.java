@@ -7,10 +7,7 @@ import com.test.bu.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
@@ -25,10 +22,12 @@ public class UsersController {
         usersService.save(user);
         return "redirect:users";
     }
-    /*@PostMapping("/newWallet")
-    public String createWallet(@ModelAttribute Wallet wallet) {
-        walletService.save(wallet);
-        return "redirect:wallets";*/
+
+   /* @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") int id) {
+        usersService.delete(id);
+        return "redirect:/users";
+    }*/
 
     @GetMapping("/users")
     public String getAllUsers(Model model) {

@@ -15,8 +15,8 @@ public class UsersDaoImp implements UsersDao {
 
     @Override
     @Transactional
-    public void save(Users users) {
-        entityManager.persist(users);
+    public void save(Users user) {
+        entityManager.persist(user);
     }
 
     @Override
@@ -27,21 +27,23 @@ public class UsersDaoImp implements UsersDao {
     }
 
     @Override
+    @Transactional
     public Users update(Users newUsers) {
-        return null;
+
+        return entityManager.merge(newUsers);
     }
 
     @Override
     public List<Users> getAll() {
-        return entityManager.createQuery("SELECT g FROM Users g", Users.class).getResultList();
+        return entityManager.createQuery("SELECT u FROM Users u", Users.class).getResultList();
     }
 
     @Override
-    public void delete(int id) {
-        entityManager.remove(id);
+    public void delete(Users users) {
+        entityManager.remove(users);
     }
-    /*@Override
-    public void delete(Wallet walletByNumber) {
-        entityManager.remove(walletByNumber);
+    /*public void delete(int id) {
+        entityManager.remove(id);
     }*/
+
 }

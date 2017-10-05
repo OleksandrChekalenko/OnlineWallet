@@ -10,7 +10,7 @@ public interface UsersService {
 
     List<Users> getAll();
 
-    void save(Users wallet);
+    void save(Users user);
 
     void delete(int id);
 

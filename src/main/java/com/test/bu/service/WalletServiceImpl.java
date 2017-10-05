@@ -32,7 +32,7 @@ public class WalletServiceImpl implements WalletService {
     @Override
     @Transactional
     public void delete(int number) {
-        walletDao.delete(walletDao.getWalletByNumber(number));
+        walletDao.delete(number);
     }
 
     /*  @Override

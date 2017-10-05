@@ -51,15 +51,15 @@ public class WalletController {
         return "redirect:edit/" + wallet.getNumber();
     }
 
-    @GetMapping("/delete/{number}")
+    @GetMapping("wallets/delete/{number}")
     public String deleteWallet(@PathVariable("number") int number) {
         walletService.delete(number);
         return "redirect:/wallets";
     }
 
-    @PostMapping("/delete")
+   /* @PostMapping("/delete")
     public String deleteNumber2(@ModelAttribute("NUMBER") int number) {
         walletService.delete(number);
-        return "redirect:wallets";
-    }
+        return "redirect:/wallets";
+    }*/
 }
