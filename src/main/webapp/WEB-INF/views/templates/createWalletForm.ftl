@@ -2,11 +2,24 @@
     <p>Number</p>
     <input title="Number" type="number" name="number"/>
     <p>Type</p>
-    <input title="Type" type="text" name="type"/>
+    <select name="type">
+        <option >VISA</option>
+        <option >MASTERCARD</option>
+    </select>
+    <#--<input title="Type" type="text" name="type"/>-->
         <input type="submit" value="OK"/>
 </form>
 
 <br>
+
+
+
+<#--<li><a href=#>Menu 2</a>
+    <ul class="submenu">
+        <li><a href=#>Sudmenu 2</a></li>
+        <li><a href=#>Sudmenu 2</a></li>
+        <li><a href=#>Sudmenu 2</a></li>
+    </ul>-->
 <#--Delete 2
 <form action="/delete" method="post" class="form-group">
     Wallet number:

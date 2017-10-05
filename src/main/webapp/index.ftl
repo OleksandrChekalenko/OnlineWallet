@@ -7,7 +7,7 @@
 <body class="container">
 <#include "WEB-INF/views/templates/header.ftl">
 <div class="container">
-    <h1>Main page(index.ftl)</h1>
+    <h1>It`s a main page(index.ftl)</h1>
 </div>
 </body>
 </html>

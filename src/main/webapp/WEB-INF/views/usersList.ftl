@@ -22,7 +22,7 @@
             <td>${users.name}</td>
             <td>${users.firstName}</td>
             <td>${users.phoneNumber}</td>
-            <td><a href="/delete/${users.id}">Delete</a> </td>
+            <td><a href="users/delete/${users.id}">Delete</a> </td>
         </tr>
     </#list>
     </table>

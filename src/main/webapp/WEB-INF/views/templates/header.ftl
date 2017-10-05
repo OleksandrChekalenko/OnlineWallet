@@ -10,7 +10,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Home page(templates/header.ftl)</a>
+            <a class="navbar-brand" href="/">OW</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
             <li class=""><a href="/users">Users</a></li>

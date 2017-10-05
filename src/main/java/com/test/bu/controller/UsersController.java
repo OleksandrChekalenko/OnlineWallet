@@ -23,11 +23,11 @@ public class UsersController {
         return "redirect:users";
     }
 
-   /* @GetMapping("/delete/{id}")
+    @GetMapping("users/delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         usersService.delete(id);
         return "redirect:/users";
-    }*/
+    }
 
     @GetMapping("/users")
     public String getAllUsers(Model model) {

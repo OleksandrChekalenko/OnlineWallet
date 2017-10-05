@@ -13,7 +13,8 @@ public class Users {
     private String name;
     private String firstName;
     private String phoneNumber;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, targetEntity = Wallet.class)
+    @JoinColumn(name = "walletsList_id")
     private List<Wallet> walletsList;
 
     public Users() {

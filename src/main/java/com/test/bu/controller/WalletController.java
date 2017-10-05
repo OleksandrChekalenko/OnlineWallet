@@ -57,9 +57,4 @@ public class WalletController {
         return "redirect:/wallets";
     }
 
-   /* @PostMapping("/delete")
-    public String deleteNumber2(@ModelAttribute("NUMBER") int number) {
-        walletService.delete(number);
-        return "redirect:/wallets";
-    }*/
 }
