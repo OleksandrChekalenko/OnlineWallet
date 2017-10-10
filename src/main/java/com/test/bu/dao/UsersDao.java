@@ -15,4 +15,5 @@ public interface UsersDao {
     List<Users> getAll();
 
     void delete(Users entity);
+
 }

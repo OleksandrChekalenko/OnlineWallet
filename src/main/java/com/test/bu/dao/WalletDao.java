@@ -8,7 +8,7 @@ public interface WalletDao {
 
     void save(Wallet wallet);
 
-    Wallet getWalletByNumber(int number);
+    Wallet getWalletByNumber(long number);
 
     Wallet update(Wallet newWallet);
 
@@ -17,4 +17,6 @@ public interface WalletDao {
    // void delete(int number);
 
     void delete(int walletByNumber);
+
+    long getWalletsInDB();
 }

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class WalletController {
 
+   //protected static long countWalletsNumber=100000000;
+
     @Autowired
     private WalletService walletService;
 
@@ -34,12 +36,13 @@ public class WalletController {
 
     @PostMapping("/newWallet")
     public String createWallet(@ModelAttribute Wallet wallet) {
+        wallet.setNumber(walletService.getWalletsInDB() + 100_000_000);
         walletService.save(wallet);
         return "redirect:wallets";
     }
 
     @GetMapping("/edit/{NUMBER}")
-    public String editPage(@PathVariable("NUMBER") int number, Model model) {
+    public String editPage(@PathVariable("NUMBER") long number, Model model) {
         System.out.println("number = " + number);
         model.addAttribute("wallet", walletService.getByNumber(number));
         return "editWallet";

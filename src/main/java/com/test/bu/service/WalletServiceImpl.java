@@ -15,7 +15,7 @@ public class WalletServiceImpl implements WalletService {
     private WalletDao walletDao;
 
     @Override
-    public Wallet getByNumber(int number) {
+    public Wallet getByNumber(long number) {
         return walletDao.getWalletByNumber(number);
     }
 
@@ -31,8 +31,8 @@ public class WalletServiceImpl implements WalletService {
 
     @Override
     @Transactional
-    public void delete(int number) {
-        walletDao.delete(number);
+    public void delete(long number) {
+        walletDao.delete(Math.toIntExact(number));
     }
 
     /*  @Override
@@ -46,5 +46,8 @@ public class WalletServiceImpl implements WalletService {
         walletDao.update(wallet);
     }
 
-
+    @Override
+    public long getWalletsInDB() {
+        return walletDao.getWalletsInDB();
+    }
 }

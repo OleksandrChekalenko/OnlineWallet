@@ -19,7 +19,7 @@ public class WalletDaoIml implements WalletDao {
     }
 
     @Override
-    public Wallet getWalletByNumber(int number) {
+    public Wallet getWalletByNumber(long number) {
         return entityManager.createQuery("SELECT w FROM Wallet w WHERE NUMBER=:NUMBER", Wallet.class)
                 .setParameter("NUMBER", number)
                 .getSingleResult();
@@ -36,15 +36,15 @@ public class WalletDaoIml implements WalletDao {
         return entityManager.createQuery("SELECT w FROM Wallet w", Wallet.class).getResultList();
     }
 
-    /*@Override
-    public void delete(int number) {
-        entityManager.remove(number);
-    }*/
-
     @Override
     public void delete(int walletByNumber) {
         entityManager.remove(getWalletByNumber(walletByNumber));
     }
 
 
+    @Override
+    public long getWalletsInDB() {
+        return (long) entityManager.createQuery("SELECT count(id) FROM Wallet").getSingleResult();
+    }
 }
+

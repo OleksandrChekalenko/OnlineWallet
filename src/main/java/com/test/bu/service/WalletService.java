@@ -6,13 +6,15 @@ import java.util.List;
 
 public interface WalletService {
 
-    Wallet getByNumber(int number);
+    Wallet getByNumber(long number);
 
     List<Wallet> getAll();
 
     void save(Wallet wallet);
 
-    void delete(int number);
+    void delete(long number);
 
     void update(Wallet wallet);
+
+    long getWalletsInDB();
 }

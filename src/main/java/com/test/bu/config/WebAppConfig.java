@@ -1,5 +1,6 @@
 package com.test.bu.config;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 @Configuration
 @ComponentScan(basePackages = "com.test.bu.controller")
 public class WebAppConfig extends WebMvcConfigurerAdapter {
+
 
     @Bean
     public FreeMarkerViewResolver freemarkerViewResolver() {

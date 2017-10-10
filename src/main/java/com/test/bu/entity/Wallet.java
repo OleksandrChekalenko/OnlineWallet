@@ -11,7 +11,7 @@ public class Wallet {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
-    private Integer number;
+    private long number;
     private String type;
     private String walletCurrency;
 
@@ -37,11 +37,11 @@ public class Wallet {
         this.id = id;
     }
 
-    public Integer getNumber() {
+    public long getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(long number) {
         this.number = number;
     }
 

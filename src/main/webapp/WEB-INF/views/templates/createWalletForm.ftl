@@ -1,6 +1,6 @@
 <form action="/newWallet" method="post" name="wallet" class="form-group">
-    <p>Number</p>
-    <input title="Number" type="number" name="number"/>
+   <#-- <p>Number</p>
+    <input title="Number" type="number" name="number"/>-->
     <p>Type</p>
     <select name="type">
         <option >VISA</option>
