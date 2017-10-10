@@ -13,7 +13,7 @@
             <a class="navbar-brand" href="/">OW</a>
         </div>
         <ul class="nav navbar-nav navbar-left">
-            <li class=""><a href="/users">Users</a></li>
+            <li class=""><a href="user/users">Users</a></li>
             <li class=""><a href="/wallets">Wallets</a></li>
         </ul>
     </div>

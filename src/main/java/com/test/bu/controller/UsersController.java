@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UsersController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class UsersController {
     @PostMapping("/newUser")
     public String createUser(@ModelAttribute Users user) {
         usersService.save(user);
-        return "redirect:users";
+        return "redirect:/users";
     }
 
     @GetMapping("users/delete/{id}")

@@ -17,4 +17,6 @@ public interface WalletService {
     void update(Wallet wallet);
 
     long getWalletsInDB();
+
+    List<Wallet> getAllWalletNumbers();
 }

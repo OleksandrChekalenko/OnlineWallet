@@ -14,6 +14,9 @@ public class Wallet {
     private long number;
     private String type;
     private String walletCurrency;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Users.class)
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users userId;
 
     /*@OneToMany(fetch = FetchType.EAGER)
     private List<Users> usersList;*/

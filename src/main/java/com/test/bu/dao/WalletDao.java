@@ -19,4 +19,6 @@ public interface WalletDao {
     void delete(int walletByNumber);
 
     long getWalletsInDB();
+
+    List<Wallet> getAllWalletNumbers();
 }

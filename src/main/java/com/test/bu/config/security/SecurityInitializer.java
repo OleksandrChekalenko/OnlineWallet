@@ -1,4 +1,3 @@
-/*
 package com.test.bu.config.security;
 
         import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
@@ -6,4 +5,3 @@ package com.test.bu.config.security;
 public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {
 }
 
-*/

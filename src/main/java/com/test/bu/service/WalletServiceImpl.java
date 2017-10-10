@@ -50,4 +50,9 @@ public class WalletServiceImpl implements WalletService {
     public long getWalletsInDB() {
         return walletDao.getWalletsInDB();
     }
+
+    @Override
+    public List<Wallet> getAllWalletNumbers() {
+        return walletDao.getAllWalletNumbers();
+    }
 }

@@ -46,5 +46,10 @@ public class WalletDaoIml implements WalletDao {
     public long getWalletsInDB() {
         return (long) entityManager.createQuery("SELECT count(id) FROM Wallet").getSingleResult();
     }
+
+    @Override
+    public List<Wallet> getAllWalletNumbers() {
+        return entityManager.createQuery("SELECT number FROM onlinewalletdb.Wallet").getResultList();
+    }
 }
 

@@ -17,10 +17,6 @@ public class WalletController {
     @Autowired
     private WalletService walletService;
 
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
 
     @GetMapping("/wallets/{NUMBER}")
     public String getWalletByNumber(@PathVariable("NUMBER") int number, Model model) {
@@ -37,6 +33,10 @@ public class WalletController {
     @PostMapping("/newWallet")
     public String createWallet(@ModelAttribute Wallet wallet) {
         wallet.setNumber(walletService.getWalletsInDB() + 100_000_000);
+        /*for (:
+             ) {
+
+        }*/
         walletService.save(wallet);
         return "redirect:wallets";
     }
