@@ -2,24 +2,22 @@ package com.test.bu.entity;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "WALLET")
 public class Wallet {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private long number;
     private String type;
     private String walletCurrency;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Users.class)
-    @JoinColumn(name = "user_id", nullable = false)
-    private Users userId;
 
-    /*@OneToMany(fetch = FetchType.EAGER)
-    private List<Users> usersList;*/
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private Users users;
+
 
     public Wallet() {
     }
@@ -48,20 +46,23 @@ public class Wallet {
         this.number = number;
     }
 
-    public String getType() {        return type;
+    public String getType() {
+        return type;
     }
 
     public void setType(String type) {
         this.type = type;
     }
 
-    /*public List<Users> getUsersList() {
-        return usersList;
+    public Users getUserId() {
+        return users;
     }
 
-    public void setUsersList(List<Users> usersList) {
-        this.usersList = usersList;
-    }*/
+    public void setUserId(Users userId) {
+        this.users = userId;
+    }
+
+
 
     @Override
     public String toString() {

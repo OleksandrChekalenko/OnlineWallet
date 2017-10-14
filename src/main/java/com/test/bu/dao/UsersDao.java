@@ -10,6 +10,8 @@ public interface UsersDao {
 
     Users getUsersById(int id);
 
+    Users getUserByName(String name);
+
     Users update(Users newUsers);
 
     List<Users> getAll();

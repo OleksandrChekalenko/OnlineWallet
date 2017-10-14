@@ -1,3 +1,4 @@
+/*
 package com.test.bu.service;
 
 import com.test.bu.config.JpaConfig;
@@ -25,7 +26,8 @@ public class UsersServiceImplTest {
     @Autowired
     private UsersService usersService;
 
-    /*@Test
+    */
+/*@Test
     public void getById() throws Exception {
         Users user = getTestUser("Walter");
         usersService.save(user);
@@ -36,7 +38,8 @@ public class UsersServiceImplTest {
         Users userServiceById = usersService.getById(user2.getId());
         assertNotNull(userServiceById);
         assertEquals("Walter", userServiceById.getName());
-    }*/
+    }*//*
+
 
     private Users getTestUser(String name) {
         Users user = new Users();
@@ -56,7 +59,8 @@ public class UsersServiceImplTest {
         assertEquals(toAll.size()+1, afterAll.size());
     }
 
-   /* @Test
+   */
+/* @Test
     public void save() throws Exception {
         Users user = getTestUser("saveUser");
         usersService.save(user);
@@ -66,13 +70,16 @@ public class UsersServiceImplTest {
         Users userServiceById = usersService.getById(user2.getId());
         assertNotNull(userServiceById);
         assertEquals("saveUser", userServiceById.getName());
-    }*/
+    }*//*
+
+*/
 /*        ArrayList<Users> all = (ArrayList<Users>) usersService.getAll();
         Optional<Users> walter = all.stream().filter(users -> user.getName().equals("Walter")).findFirst();
         Users user2 = walter.get();
         Users userServiceById = usersService.getById(user2.getId());
         assertNotNull(userServiceById);
-        assertEquals("Walter", userServiceById.getName());*/
+        assertEquals("Walter", userServiceById.getName());*//*
+
     @Test
     public void delete() throws Exception {
         Users user = getTestUser("saveUser");
@@ -83,4 +90,4 @@ public class UsersServiceImplTest {
     public void update() throws Exception {
     }
 
-}
+}*/

@@ -2,21 +2,26 @@ package com.test.bu.entity;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-public class Users {
+public class Users implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String firstName;
+    private String email;
     private String password;
     private String phoneNumber;
-    @OneToMany(fetch = FetchType.EAGER, targetEntity = Wallet.class)
-    @JoinColumn(name = "user_id")
-    private List<Wallet> walletsList;
+
+    @OneToMany(targetEntity = Wallet.class, mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Wallet> walletsList = new ArrayList<>();
+
 
     public Users() {
     }
@@ -27,7 +32,15 @@ public class Users {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<Wallet> getWalletsList() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+     public List<Wallet> getWalletsList() {
         return walletsList;
     }
 
@@ -83,7 +96,6 @@ public class Users {
         sb.append(", firstName='").append(firstName).append('\'');
         sb.append(", password='").append(password).append('\'');
         sb.append(", phoneNumber='").append(phoneNumber).append('\'');
-        sb.append(", walletsList=").append(walletsList);
         sb.append('}');
         return sb.toString();
     }

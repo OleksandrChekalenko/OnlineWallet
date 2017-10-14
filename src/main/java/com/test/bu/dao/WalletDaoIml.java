@@ -38,6 +38,7 @@ public class WalletDaoIml implements WalletDao {
 
     @Override
     public void delete(int walletByNumber) {
+
         entityManager.remove(getWalletByNumber(walletByNumber));
     }
 
@@ -49,7 +50,7 @@ public class WalletDaoIml implements WalletDao {
 
     @Override
     public List<Wallet> getAllWalletNumbers() {
-        return entityManager.createQuery("SELECT number FROM onlinewalletdb.Wallet").getResultList();
+        return entityManager.createQuery("SELECT (number) FROM Wallet").getResultList();
     }
 }
 

@@ -20,13 +20,13 @@ public class UsersController {
     @PostMapping("/newUser")
     public String createUser(@ModelAttribute Users user) {
         usersService.save(user);
-        return "redirect:/users";
+        return "redirect:users";
     }
 
     @GetMapping("users/delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         usersService.delete(id);
-        return "redirect:/users";
+        return "redirect:/user/users";
     }
 
     @GetMapping("/users")

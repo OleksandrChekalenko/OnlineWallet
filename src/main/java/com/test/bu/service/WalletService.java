@@ -18,5 +18,7 @@ public interface WalletService {
 
     long getWalletsInDB();
 
+
+
     List<Wallet> getAllWalletNumbers();
 }

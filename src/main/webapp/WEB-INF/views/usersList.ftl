@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>UserData</title>
 </head>
-<body class="container">
-<#include "templates/header.ftl">
+<body class="container" >
+
+<#include "templates/header2.ftl">
 <div class="table-responsive">
     <caption>Users list</caption>
     <table class="table table-striped">

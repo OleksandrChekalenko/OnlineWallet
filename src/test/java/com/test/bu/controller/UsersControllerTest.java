@@ -1,3 +1,4 @@
+/*
 package com.test.bu.controller;
 
 import com.test.bu.config.JpaConfigTest;
@@ -52,7 +53,8 @@ public class UsersControllerTest {
         MockitoAnnotations.initMocks(this);
     }
 
-   /* @Test
+   */
+/* @Test
     public void createUser() throws Exception {
         Users user = new Users();
         user.setName("Paul");
@@ -65,7 +67,8 @@ public class UsersControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("redirect:user/users"))
                 .andExpect(model().attributeExists("user/users"));
-    }*/
+    }*//*
+
 
     @Test
     public void deleteUser() throws Exception {
@@ -75,4 +78,4 @@ public class UsersControllerTest {
     public void getAllUsers() throws Exception {
     }
 
-}
+}*/

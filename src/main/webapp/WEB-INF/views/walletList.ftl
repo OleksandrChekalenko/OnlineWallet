@@ -5,7 +5,7 @@
     <title>WalletData</title>
 </head>
 <body class="container">
-<#include "templates/header.ftl">
+<#include "templates/header2.ftl">
 <div class="table-responsive">
     <caption>Wallets list</caption>
     <table class="table table-striped">

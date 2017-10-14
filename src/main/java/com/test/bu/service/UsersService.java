@@ -8,6 +8,8 @@ public interface UsersService {
 
     Users getById(int id);
 
+    Users getUserByName(String name);
+
     List<Users> getAll();
 
     void save(Users user);

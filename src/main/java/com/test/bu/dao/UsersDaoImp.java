@@ -27,6 +27,12 @@ public class UsersDaoImp implements UsersDao {
     }
 
     @Override
+    public Users getUserByName(String name) {
+        return entityManager.createQuery("SELECT u FROM Users u WHERE name =:name", Users.class)
+                .setParameter("name", name).getSingleResult();
+    }
+
+    @Override
     @Transactional
     public Users update(Users newUsers) {
 

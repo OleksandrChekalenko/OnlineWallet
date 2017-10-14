@@ -1,3 +1,4 @@
+/*
 package com.test.bu.config;
 
 import com.test.bu.config.JpaConfig;
@@ -34,4 +35,4 @@ public class JpaConfigTest extends JpaConfig {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         return dataSource;
     }
-}
+}*/

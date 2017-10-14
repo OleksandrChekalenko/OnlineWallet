@@ -20,6 +20,11 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
+    public Users getUserByName(String name) {
+        return usersDao.getUserByName(name);
+    }
+
+    @Override
     public List<Users> getAll() {
         return usersDao.getAll();
     }

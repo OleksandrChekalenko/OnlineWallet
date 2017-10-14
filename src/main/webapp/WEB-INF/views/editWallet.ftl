@@ -6,7 +6,7 @@
     <title>WalletData</title>
 </head>
 <body class="container">
-<#include "templates/header.ftl">
+<#include "templates/header2.ftl">
 
 <form action="/editWallet" method="post" number="wallet" class="form-group">
     <#--<input title="Id" type="number" number="id" value="${wallet.id}"/>-->
