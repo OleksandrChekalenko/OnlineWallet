@@ -5,7 +5,7 @@
     <title>WalletData</title>
 </head>
 <body class="container">
-<#include "templates/header2.ftl">
+<#include "templates/header3.ftl">
 <div class="table-responsive">
     <caption>Wallet info</caption>
     <table class="table table-striped">
@@ -47,6 +47,6 @@
 
     </table>
 </div>
-<a type="button" href="/wallets" class="button">Back</a>
+<#--<a type="button" href="/wallets" class="button">Back</a>-->
 </body>
 </html>

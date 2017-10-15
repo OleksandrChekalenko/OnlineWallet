@@ -17,11 +17,11 @@ public class UsersController {
     private UsersService usersService;
 
 
-    @PostMapping("/newUser")
+    /*@PostMapping("/newUser")
     public String createUser(@ModelAttribute Users user) {
         usersService.save(user);
-        return "redirect:users";
-    }
+        return "susuccessRegistration";
+    }*/
 
     @GetMapping("users/delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {

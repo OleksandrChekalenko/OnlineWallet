@@ -4,24 +4,19 @@
     <title>OW</title>
     <meta charset="utf-8">
     <style>
+        div{
+            width: 960px;
+            margin: auto;
+            padding: 25px;
+            margin: 25px;
+
+        }
         body{
             background:  url(images/background.jpg) no-repeat center top;
             font: 13px 'trebuchet MS', Arial, Helvetica;
             -webkit-background-size: 100%;
             background-size: 100%;
         }
-
-        /*h2, p {
-            text-align: center;
-            color: #eb0d02;
-            text-shadow: 0 1px 0 #eb0d02;
-        }*/
-
-        a {
-            color: #2A679F;
-        }
-
-        /* Выше приведёные стили предназначены для демонстрации ----------- */
 
         #menu, #menu ul {
             margin: 0;
@@ -31,7 +26,7 @@
 
         #menu {
             width: 960px;
-            margin: 60px auto;
+            margin: auto;
             border: 1px solid #222;
             background-color: #444;
             background-image: -moz-linear-gradient(rgba(214, 214, 214, 0.01), #888);
@@ -211,25 +206,24 @@
             border-radius: 0 0 3px 3px;
         }
     </style>
-
 </head>
 <body>
-<br><br><br><br><br><br><br>
+<br><br><br><br>
 <ul id="menu">
     <li><a href="/">
         &nbsp;ow</a></li>
     <li>
-        <a href="/wallets">WALLET</a>
+        <a href="wallet/wallets">WALLET</a>
 
     </li>
     <li>
-        <a href="">PAYMENTS</a>
+        <a <#--href=""-->>PAYMENTS</a>
         <ul>
             <li>
-                <a href="">Transfer</a>
+                <a href="/transfer">Transfer</a>
             </li>
             <li>
-                <a href="">Exchange</a>
+                <a href="/exchange">Exchange</a>
         </ul>
     <li>
         <a href="/">ABOUT</a>

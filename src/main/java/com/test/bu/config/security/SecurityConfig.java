@@ -27,17 +27,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http
                 .csrf().disable()
 
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/user/users","/wallets").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/wallets").access("hasRole('ROLE_USER')")
+                .antMatchers("/user/users","/wallet/wallets").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/wallet/wallets").access("hasRole('ROLE_USER')")
                 .and().formLogin()
                 .and().exceptionHandling().accessDeniedPage("/error_page");
+
+        /*    <------------   22:05 15/10/17   ----------------->    */
+        /* http
+                .csrf().disable()
+
+                .authorizeRequests()
+                .antMatchers("/", "/newUser").permitAll()
+                .antMatchers("/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/wallet/**").access("hasRole('ROLE_USER') or hasRole('ROLE-ADMIN')")
+                .and().formLogin()
+                .and().exceptionHandling().accessDeniedPage("/error_page");*/
     }
 }
+/*<-------------------------- OLD ---------------------------->*/
 
 /*import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;

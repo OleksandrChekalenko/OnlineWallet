@@ -5,8 +5,8 @@
     <title>Title(index.ftl)</title>
 </head>
 <body class="container">
-<#include "WEB-INF/views/templates/header3.ftl">
+<#include "templates/header3.ftl">
 <br><br><br>
-<#include "WEB-INF/views/templates/createUsersForm.ftl">
+<h1> TRANSFER PAGE</h1>
 </body>
 </html>

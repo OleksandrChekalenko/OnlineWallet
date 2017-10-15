@@ -14,7 +14,7 @@
         </div>
         <ul class="nav navbar-nav navbar-left">
             <li class=""><a href="user/users">Users</a></li>
-            <li class=""><a href="/wallets">Wallets</a></li>
+            <li class=""><a href="wallet/wallets">Wallets</a></li>
         </ul>
     </div>
 </nav>

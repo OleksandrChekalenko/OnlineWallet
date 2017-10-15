@@ -14,13 +14,13 @@ import java.security.Principal;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/wallet")
 public class WalletController {
 
 
    //protected static long countWalletsNumber=100000000;
-@Autowired
-private UsersService usersService;
+    @Autowired
+    private UsersService usersService;
 
     @Autowired
     private WalletService walletService;
@@ -32,11 +32,18 @@ private UsersService usersService;
         return "showWallet";
     }
 
+
+
     @GetMapping("/wallets")
     public String getAllWallets(Model model, Principal principal) {
         Users user = usersService.getUserByName(principal.getName());
         model.addAttribute("wallets", walletService.getAll(user.getId()));
         return "walletList";
+    }
+
+    @GetMapping("/wallets/addWallet")
+    public String createNewWallet(Model model, Principal principal) {
+        return "addWallet";
     }
 
     @PostMapping("/newWallet")
@@ -53,7 +60,7 @@ private UsersService usersService;
         wallet.setUserId(user);
         usersService.update(user);
         walletService.save(wallet);
-        return "redirect:wallets";
+        return "redirect:/wallet/wallets";
     }
 
     @GetMapping("/edit/{NUMBER}")
@@ -79,7 +86,7 @@ private UsersService usersService;
             walletService.update(wallet);
             walletService.delete(number);
         }
-        return "redirect:/wallets";
+        return "redirect:/wallet/wallets";
     }
 
 }

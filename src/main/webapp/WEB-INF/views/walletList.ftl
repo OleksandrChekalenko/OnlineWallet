@@ -5,8 +5,9 @@
     <title>WalletData</title>
 </head>
 <body class="container">
-<#include "templates/header2.ftl">
-<div class="table-responsive">
+<#include "templates/header3.ftl">
+<br><br><br>
+<div  class="table-responsive">
     <caption>Wallets list</caption>
     <table class="table table-striped">
         <tr>
@@ -29,6 +30,11 @@
     </#list>
     </table>
 </div>
-<#include "templates/createWalletForm.ftl"/>
+<div>
+    <form action="wallets/addWallet" method="get" name="wallet" class="form-group">
+        <input type="submit" value="New wallet"/>
+    </form>
+    <#--<#include "templates/createWalletForm.ftl"/>-->
+</div>
 </body>
 </html>
