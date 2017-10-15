@@ -41,20 +41,12 @@ private UsersService usersService;
     @PostMapping("/newWallet")
     public String createWallet(@ModelAttribute Wallet wallet, Principal principal) {
         wallet.setNumber(walletService.getWalletsInDB() + 100_000_000);
-        /*List<Wallet> allWalletNumbers = walletService.getAllWalletNumbers();
-        for (Wallet n :
-                allWalletNumbers) {
-            System.out.println(n);
-        }
-        for (int i = 0; i < allWalletNumbers.size(); i++) {
-            Wallet j = allWalletNumbers.get(i);
-            long k = j.getNumber();
-            if (wallet.getNumber() == k) {
-                wallet.setNumber(wallet.getNumber()+1);
-                i--;
+        List<Long> allWalletNumbersList = walletService.getAllWalletNumbers();
+        for (Long w : allWalletNumbersList) {
+            if (w == wallet.getNumber()) {
+             wallet.setNumber(wallet.getNumber() + 1);
             }
         }
-        */
         Users user = usersService.getUserByName(principal.getName());
         user.getWalletsList().add(wallet);
         wallet.setUserId(user);

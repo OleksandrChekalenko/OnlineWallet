@@ -52,7 +52,7 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public List<Wallet> getAllWalletNumbers() {
+    public List<Long> getAllWalletNumbers() {
         return walletDao.getAllWalletNumbers();
     }
 }

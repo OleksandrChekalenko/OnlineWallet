@@ -49,7 +49,7 @@ public class WalletDaoIml implements WalletDao {
     }
 
     @Override
-    public List<Wallet> getAllWalletNumbers() {
+    public List<Long> getAllWalletNumbers() {
         return entityManager.createQuery("SELECT (number) FROM Wallet").getResultList();
     }
 }

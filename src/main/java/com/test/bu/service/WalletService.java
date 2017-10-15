@@ -20,5 +20,5 @@ public interface WalletService {
 
 
 
-    List<Wallet> getAllWalletNumbers();
+    List<Long> getAllWalletNumbers();
 }

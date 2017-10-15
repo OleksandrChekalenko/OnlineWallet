@@ -20,5 +20,5 @@ public interface WalletDao {
 
     long getWalletsInDB();
 
-    List<Wallet> getAllWalletNumbers();
+    List<Long> getAllWalletNumbers();
 }
