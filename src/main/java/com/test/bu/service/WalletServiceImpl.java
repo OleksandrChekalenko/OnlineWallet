@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.security.Principal;
 import java.util.List;
 
 @Service
@@ -20,8 +21,8 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public List<Wallet> getAll() {
-        return walletDao.getAll();
+    public List<Wallet> getAll(int user) {
+        return walletDao.getAll(user);
     }
 
     @Override

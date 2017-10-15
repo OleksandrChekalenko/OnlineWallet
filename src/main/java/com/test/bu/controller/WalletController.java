@@ -33,8 +33,9 @@ private UsersService usersService;
     }
 
     @GetMapping("/wallets")
-    public String getAllWallets(Model model) {
-        model.addAttribute("wallets", walletService.getAll());
+    public String getAllWallets(Model model, Principal principal) {
+        Users user = usersService.getUserByName(principal.getName());
+        model.addAttribute("wallets", walletService.getAll(user.getId()));
         return "walletList";
     }
 

@@ -2,6 +2,7 @@ package com.test.bu.dao;
 
 import com.test.bu.entity.Wallet;
 
+import java.security.Principal;
 import java.util.List;
 
 public interface WalletDao {
@@ -12,7 +13,7 @@ public interface WalletDao {
 
     Wallet update(Wallet newWallet);
 
-    List<Wallet> getAll();
+    List<Wallet> getAll(int user);
 
    // void delete(int number);
 

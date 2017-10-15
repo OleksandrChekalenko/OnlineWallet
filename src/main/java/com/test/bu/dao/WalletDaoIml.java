@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.security.Principal;
 import java.util.List;
 public class WalletDaoIml implements WalletDao {
 
@@ -32,8 +33,11 @@ public class WalletDaoIml implements WalletDao {
     }
 
     @Override
-    public List<Wallet> getAll() {
-        return entityManager.createQuery("SELECT w FROM Wallet w", Wallet.class).getResultList();
+    public List<Wallet> getAll(int user) {
+
+        return entityManager.createQuery("SELECT w FROM Wallet w WHERE user=:user", Wallet.class)
+                .setParameter("user", user)
+                .getResultList();
     }
 
     @Override
