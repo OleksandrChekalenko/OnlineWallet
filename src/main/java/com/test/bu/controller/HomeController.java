@@ -1,6 +1,8 @@
 package com.test.bu.controller;
 
+import com.test.bu.entity.Role;
 import com.test.bu.entity.Users;
+import com.test.bu.service.RoleService;
 import com.test.bu.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,8 @@ public class HomeController {
 
     @Autowired
     private UsersService usersService;
+    @Autowired
+    private RoleService roleService;
 
     @GetMapping("/")
     public String index() {
@@ -26,6 +30,11 @@ public class HomeController {
         return "loginPage";
     }
 
+    @PostMapping("/login")
+    public String login(@ModelAttribute Users users) {
+        return "index";
+    }
+
     @GetMapping("/error_page")
     public String errorPage() {
         return "errorPage";
@@ -33,6 +42,10 @@ public class HomeController {
 
     @PostMapping("/newUser")
     public String createUser(@ModelAttribute Users user) {
+        Role role = new Role();
+        role.setName(user.getName());
+        role.setRole("ROLE_USER");
+        roleService.save(role);
         usersService.save(user);
         return "susuccessRegistration";
     }

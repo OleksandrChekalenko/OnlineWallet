@@ -9,6 +9,7 @@
 <#include "templates/header3.ftl">
 <div class="table-responsive">
     <caption>Users list</caption>
+    <BR><BR><BR>
     <table class="table table-striped">
         <tr>
             <th>Id</th>
@@ -26,6 +27,7 @@
             <td>${users.firstName}</td>
             <td>${users.password}</td>
             <td>${users.phoneNumber}</td>
+            <td><a href="users/delete/${users.id}">Delete</a> </td>
             <td><a href="users/delete/${users.id}">Delete</a> </td>
         </tr>
     </#list>

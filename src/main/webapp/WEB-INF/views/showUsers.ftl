@@ -6,6 +6,7 @@
 </head>
 <body class="container">
 <#include "templates/header3.ftl">
+<BR><BR><BR>
 <div class="table-responsive">
     <caption>User info</caption>
     <table class="table table-striped">

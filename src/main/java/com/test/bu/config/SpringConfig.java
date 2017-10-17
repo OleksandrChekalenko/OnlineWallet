@@ -1,14 +1,8 @@
 package com.test.bu.config;
 
 
-import com.test.bu.dao.UsersDao;
-import com.test.bu.dao.UsersDaoImp;
-import com.test.bu.dao.WalletDao;
-import com.test.bu.dao.WalletDaoIml;
-import com.test.bu.service.UsersService;
-import com.test.bu.service.UsersServiceImpl;
-import com.test.bu.service.WalletService;
-import com.test.bu.service.WalletServiceImpl;
+import com.test.bu.dao.*;
+import com.test.bu.service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -35,4 +29,10 @@ public class SpringConfig {
         return new UsersDaoImp();
     }
 
+    @Bean
+    public RoleService getRoleService() {
+        return new RoleServiceImpl();}
+
+    @Bean
+    public RoleDao getRoleDao() { return new RoleDaoImpl();}
 }

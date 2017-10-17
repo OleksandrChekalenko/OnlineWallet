@@ -11,14 +11,15 @@ import java.util.Set;
 public class Users implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String firstName;
     private String email;
     private String password;
     private String phoneNumber;
-
+    @Column(nullable = false)
+    private int enabled = 1;
     @OneToMany(targetEntity = Wallet.class, mappedBy = "users", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Wallet> walletsList = new ArrayList<>();
 
@@ -86,6 +87,14 @@ public class Users implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
 
     @Override
