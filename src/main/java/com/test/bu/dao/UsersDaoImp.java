@@ -48,9 +48,7 @@ public class UsersDaoImp implements UsersDao {
     public void delete(Users users) {
         entityManager.remove(users);
     }
-    /*public void delete(int id) {
-        entityManager.remove(id);
-    }*/
+
 
 
 }

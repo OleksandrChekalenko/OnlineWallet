@@ -9,4 +9,6 @@ import com.test.bu.entity.Users;
 public interface RoleService {
 
     void save(Role role);
+
+    void delete(Role role);
 }

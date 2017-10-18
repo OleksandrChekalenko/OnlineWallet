@@ -7,7 +7,7 @@
 <body class="container">
 <#include "templates/header3.ftl">
 <BR><BR><BR>
-<div class="table-responsive">
+<div <#--class="table-responsive"-->id="margin">
     <caption>User info</caption>
     <table class="table table-striped">
         <tr>
@@ -28,7 +28,7 @@
     </table>
 </div>
 
-<div class="table-responsive">
+<div <#--class="table-responsive"-->id="margin">
     <caption>Users</caption>
     <table class="table table-striped">
         <tr>

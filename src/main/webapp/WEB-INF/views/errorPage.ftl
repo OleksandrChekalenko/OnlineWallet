@@ -7,7 +7,6 @@
         <body class="container">
             <#include "templates/header3.ftl">
            <br><br><br>
-            <h1>I'm errrrror page!</h1>
-
+            <h1>You do not have permissions to access this page!</h1>
         </body>
 </html>

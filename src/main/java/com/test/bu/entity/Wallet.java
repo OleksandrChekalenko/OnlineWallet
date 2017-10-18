@@ -12,6 +12,7 @@ public class Wallet {
     private int id;
     private long number;
     private String type;
+    private double funds = 0.0;
     private String walletCurrency;
 
     @ManyToOne
@@ -62,7 +63,21 @@ public class Wallet {
         this.users = userId;
     }
 
+    public double getFunds() {
+        return funds;
+    }
 
+    public void setFunds(double funds) {
+        this.funds = funds;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
 
     @Override
     public String toString() {

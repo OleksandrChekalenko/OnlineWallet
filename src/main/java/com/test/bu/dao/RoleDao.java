@@ -9,4 +9,8 @@ import com.test.bu.entity.Users;
 public interface RoleDao {
 
     void save(Role role);
+
+    void delete(Role role);
+
+    Role getRoleById(int id);
 }

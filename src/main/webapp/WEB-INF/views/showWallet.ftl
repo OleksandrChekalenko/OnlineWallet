@@ -6,7 +6,7 @@
 </head>
 <body class="container">
 <#include "templates/header3.ftl">
-<div class="table-responsive">
+<div <#--class="table-responsive"-->id="margin">
     <caption>Wallet info</caption>
     <table class="table table-striped">
         <tr>
@@ -27,7 +27,7 @@
     </table>
 </div>
 
-<div class="table-responsive">
+<div <#--class="table-responsive"-->id="margin">
     <caption>Wallet users</caption>
     <table class="table table-striped">
         <tr>

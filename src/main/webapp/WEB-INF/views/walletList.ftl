@@ -7,13 +7,14 @@
 <body class="container">
 <#include "templates/header3.ftl">
 <br><br><br>
-<div  class="table-responsive">
-    <caption>Wallets list</caption>
+<div  <#--class="table-responsive"--> id="margin">
+    <#--<caption>Wallets list</caption>-->
     <table class="table table-striped">
         <tr>
             <#--<th>Id</th>-->
             <th>Number</th>
             <th>Type</th>
+                <th>Funds</th>
             <th>Currency</th>
             <th>Buttons</th>
         </tr>
@@ -22,6 +23,7 @@
             <#--<td><a href="/wallet/${wallet.id}">${wallet.id}</a></td>-->
             <td>${wallet.number}</td>
             <td>${wallet.type}</td>
+            <td>${wallet.funds}</td>
                 <td>${wallet.walletCurrency}</td>
             <td><a href="wallets/delete/${wallet.number?c}">Delete</a>
                 <#--<a href="/edit/${wallet.number}">Edit</a>-->
@@ -30,9 +32,10 @@
     </#list>
     </table>
 </div>
-<div>
+<br>
+<div id="margin">
     <form action="wallets/addWallet" method="get" name="wallet" class="form-group">
-        <input type="submit" value="New wallet"/>
+        <button id="button" type="submit">New wallet</button>
     </form>
     <#--<#include "templates/createWalletForm.ftl"/>-->
 </div>

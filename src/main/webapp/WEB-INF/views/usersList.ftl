@@ -7,7 +7,7 @@
 <body class="container" >
 
 <#include "templates/header3.ftl">
-<div class="table-responsive">
+<div <#--class="table-responsive"--> id="margin">
     <caption>Users list</caption>
     <BR><BR><BR>
     <table class="table table-striped">
@@ -17,8 +17,8 @@
             <th>First name</th>
             <th>Password</th>
             <th>Phone number</th>
-            <th>Buttons</th>
-
+            <th>Action</th>
+            <th>Action</th>
         </tr>
     <#list usersList as users>
         <tr>
@@ -28,12 +28,14 @@
             <td>${users.password}</td>
             <td>${users.phoneNumber}</td>
             <td><a href="users/delete/${users.id}">Delete</a> </td>
-            <td><a href="users/delete/${users.id}">Delete</a> </td>
+            <td><a href="/user/edit/${users.id}">Edit</a> </td>
         </tr>
     </#list>
     </table>
 </div>
+<div id="margin">
 <#include "templates/createUsersForm.ftl"/>
+</div>
 </body>
 </html>
 <#--

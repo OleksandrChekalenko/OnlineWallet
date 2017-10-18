@@ -20,4 +20,14 @@ public class RoleDaoImpl implements RoleDao {
     public void save(Role role) {
         entityManager.persist(role);
     }
+
+    @Override
+    public void delete(Role role) {
+        entityManager.remove(role);
+    }
+
+    @Override
+    public Role getRoleById(int id) {
+        return null;
+    }
 }

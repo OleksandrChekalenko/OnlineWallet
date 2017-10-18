@@ -8,7 +8,9 @@
 <#include "templates/header3.ftl">
 <br><br><br>
 <h1> REGISTRATION PAGE</h1>
-<br><br><br>
+<br>
+<div id="margin">
 <#include "templates/createUsersForm.ftl">
+</div>
 </body>
 </html>

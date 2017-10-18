@@ -16,5 +16,5 @@ public interface UsersService {
 
     void delete(int id);
 
-    void update(Users wallet);
+    void update(Users user);
 }

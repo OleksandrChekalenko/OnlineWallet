@@ -6,7 +6,37 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
 
+    #margin {
+
+        margin: 20px 20px 100px;
+
+    }
+    #button {
+        background-color: #000000;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0 5px 10px;
+        border: none;
+        cursor: pointer;
+        width: 20%;
+    }
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}</style>
 <body>
 
 <!-- Navbar -->
@@ -20,6 +50,7 @@
             <div class="w3-dropdown-content w3-bar-block w3-card-4">
                 <a href="/payments/transfer" class="w3-bar-item w3-button">Transfer</a>
                 <a href="/payments/exchange" class="w3-bar-item w3-button">Exchange</a>
+                <a href="/payments/archive" class="w3-bar-item w3-button">Archive</a>
 
             </div>
         </div>

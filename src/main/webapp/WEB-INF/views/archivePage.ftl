@@ -7,8 +7,6 @@
 <body class="container">
 <#include "templates/header3.ftl">
 <br><br><br>
-<div id="margin">
-<h1>You have successfully registered!</h1>
-    </div>
+<h1> ARCHIVE PAGE </h1>
 </body>
 </html>

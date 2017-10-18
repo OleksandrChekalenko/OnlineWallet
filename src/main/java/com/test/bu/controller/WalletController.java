@@ -59,7 +59,7 @@ public class WalletController {
         user.getWalletsList().add(wallet);
         wallet.setUserId(user);
         usersService.update(user);
-        walletService.save(wallet);
+       // walletService.save(wallet);
         return "redirect:/wallet/wallets";
     }
 

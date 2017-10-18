@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/user/users","/wallet/wallets").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/wallet/wallets").access("hasRole('ROLE_USER')")
+                .antMatchers("/wallet/wallets", "/payments/**").access("hasRole('ROLE_USER')")
                 .and().formLogin()
                 .loginPage("/loginPage").permitAll()//.failureUrl("/error_page")
                 .usernameParameter("name")

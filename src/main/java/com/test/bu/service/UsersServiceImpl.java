@@ -41,7 +41,8 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public void update(Users wallet) {
+    public void update(Users user) {
+        usersDao.update(user);
 
     }
 

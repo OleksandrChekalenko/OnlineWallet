@@ -1,6 +1,5 @@
 <form action="/newUser" method="post" name="user" class="form-group">
 
-    <br><br><br>
 
     <p>Name</p>
     <input title="Name" type="text" name="name"/>

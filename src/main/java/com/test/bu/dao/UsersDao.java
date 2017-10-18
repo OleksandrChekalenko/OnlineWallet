@@ -12,7 +12,7 @@ public interface UsersDao {
 
     Users getUserByName(String name);
 
-    Users update(Users newUsers);
+    Users update(Users user);
 
     List<Users> getAll();
 
