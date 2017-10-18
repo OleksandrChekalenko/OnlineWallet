@@ -15,6 +15,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>First name</th>
+            <th>Email</th>
             <th>Password</th>
             <th>Phone number</th>
             <th>Action</th>
@@ -25,6 +26,7 @@
             <td>${users.id}</td>
             <td>${users.name}</td>
             <td>${users.firstName}</td>
+            <td>${users.email}</td>
             <td>${users.password}</td>
             <td>${users.phoneNumber}</td>
             <td><a href="users/delete/${users.id}">Delete</a> </td>

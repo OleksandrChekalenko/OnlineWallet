@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping("/user")
 public class UsersController {
@@ -39,8 +41,9 @@ public class UsersController {
     }*/
 
     @GetMapping("users/delete/{id}")
-    public String deleteUser(@PathVariable("id") int id) {
-        //roleService.delete(getRoleById(id));
+    public String deleteUser(@PathVariable("id") int id, Principal principal) {
+        Users user = usersService.getById(id);
+        roleService.delete(user.getName());
         usersService.delete(id);
         return "redirect:/user/users";
     }
