@@ -12,7 +12,7 @@ public class Wallet {
     private int id;
     private long number;
     private String type;
-    private double funds = 0.0;
+    private double funds /*= 0.0*/;
     private String walletCurrency;
 
     @ManyToOne

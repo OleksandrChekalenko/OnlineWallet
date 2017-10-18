@@ -16,7 +16,8 @@
             <th>Type</th>
                 <th>Funds</th>
             <th>Currency</th>
-            <th>Buttons</th>
+            <th>Button</th>
+            <th>Button</th>
         </tr>
     <#list wallets as wallet>
         <tr>
@@ -26,6 +27,7 @@
             <td>${wallet.funds}</td>
                 <td>${wallet.walletCurrency}</td>
             <td><a href="wallets/delete/${wallet.number?c}">Delete</a>
+            <td><a href="/payments/refill/${wallet.number?c}">Refill</a>
                 <#--<a href="/edit/${wallet.number}">Edit</a>-->
             </td>
         </tr>

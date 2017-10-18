@@ -49,6 +49,7 @@ public class WalletController {
     @PostMapping("/newWallet")
     public String createWallet(@ModelAttribute Wallet wallet, Principal principal) {
         wallet.setNumber(walletService.getWalletsInDB() + 100_000_000);
+        wallet.setFunds(0.0);
         List<Long> allWalletNumbersList = walletService.getAllWalletNumbers();
         for (Long w : allWalletNumbersList) {
             if (w == wallet.getNumber()) {
