@@ -2,7 +2,6 @@ package com.test.bu.service;
 
 import com.test.bu.entity.Wallet;
 
-import java.security.Principal;
 import java.util.List;
 
 public interface WalletService {
@@ -22,4 +21,6 @@ public interface WalletService {
 
 
     List<Long> getAllWalletNumbers();
+
+    void transfer(long numberFrom, long numberTo, double money);
 }

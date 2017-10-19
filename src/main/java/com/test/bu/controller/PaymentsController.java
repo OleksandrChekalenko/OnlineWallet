@@ -30,21 +30,47 @@ public class PaymentsController {
         return "exchangePage";
     }
 
+    @GetMapping("/exchange/{number}")
+    public String exchangeNumber(@PathVariable("number") long number, Model model){
+        model.addAttribute("wallet", walletService.getByNumber(number));
+        return "exchangePageNumber";
+    }
+
     @GetMapping("/transfer")
-    public String showTransferPage() {
+    public String showTransferPageWithAllUserWallets(Model model, Principal principal) {
+        Users user = usersService.getUserByName(principal.getName());
+        model.addAttribute("wallets", walletService.getAll(user.getId()));
         return "transferPage";
     }
+
+    @GetMapping("/transfer/{number}")
+    public String transferNumber(@PathVariable("number") long number, Model model){
+        model.addAttribute("wallet", walletService.getByNumber(number));
+        return "transferPageNumber";
+    }
+
+    @PostMapping("/transfer/moneyTransfer")
+    public String moneyTransfer(@ModelAttribute("fromNumber") String fromNumber,
+                                @ModelAttribute("numberTo") String numberTo,
+                                @ModelAttribute("money") String money,
+                                Model model) {
+        walletService.transfer(Long.parseLong(fromNumber), Long.parseLong(numberTo), Double.parseDouble(money));
+        return "redirect:/payments/transfer";
+    }
+
 
     @GetMapping("/refill")
     public String showRefillPage(){
         return "refillPage";
     }
+
     @GetMapping("/refill/{number}")
     public String addFunds(@PathVariable("number") long number, Model model){
         /*Wallet wallet = walletService.getByNumber(number);*/
         model.addAttribute("wallet", walletService.getByNumber(number));
         return "refillPage";
     }
+
     @PostMapping("/refill/addFunds")
     public String update(@ModelAttribute Wallet wallet) {
        /*wallet.setFunds(wallet.getFunds() + funds);*/

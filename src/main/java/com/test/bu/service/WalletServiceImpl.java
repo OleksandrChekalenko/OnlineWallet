@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.security.Principal;
 import java.util.List;
 
 @Service
@@ -43,8 +42,11 @@ public class WalletServiceImpl implements WalletService {
     }*/
 
     @Override
+    @Transactional
     public void update(Wallet wallet) {
-        walletDao.update(wallet);
+        Wallet wallet1 = walletDao.getWalletByNumber(wallet.getNumber());
+        wallet1.setFunds(wallet.getFunds());
+        walletDao.update(wallet1);
     }
 
     @Override
@@ -55,5 +57,16 @@ public class WalletServiceImpl implements WalletService {
     @Override
     public List<Long> getAllWalletNumbers() {
         return walletDao.getAllWalletNumbers();
+    }
+
+    @Override
+    @Transactional
+    public void transfer(long numberFrom, long numberTo, double money) {
+        Wallet fromWallet = walletDao.getWalletByNumber(numberFrom);
+        Wallet toWallet = walletDao.getWalletByNumber(numberTo);
+        fromWallet.setFunds(fromWallet.getFunds() - money);
+        update(fromWallet);
+        toWallet.setFunds(toWallet.getFunds() + money);
+        update(toWallet);
     }
 }
