@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -35,11 +37,59 @@ public class WalletServiceImpl implements WalletService {
         walletDao.delete(Math.toIntExact(number));
     }
 
-    /*  @Override
-    @Transactional
-    public void delete(int id) {
-        userDao.delete(userDao.getById(id));
-    }*/
+    @Override
+    public List<Wallet> sortByNumber(List<Wallet> walletList) {
+       Collections.sort(walletList, new Comparator<Wallet>() {
+           @Override
+           public int compare(Wallet o1, Wallet o2) {
+               if (o1.getNumber() > o2.getNumber()) {
+                   return 1;
+               } else if (o1.getNumber() < o2.getNumber()) {
+                   return -1;
+               }
+               return 0;
+           }
+       });
+        return  walletList;
+    }
+
+    @Override
+    public List<Wallet> sortByCurrency(List<Wallet> walletList) {
+        Collections.sort(walletList, new Comparator<Wallet>() {
+            @Override
+            public int compare(Wallet o1, Wallet o2) {
+                return o1.getWalletCurrency().compareTo(o2.getWalletCurrency());
+            }
+        });
+        return walletList;
+    }
+
+    @Override
+    public List<Wallet> sortByFunds(List<Wallet> walletList) {
+        Collections.sort(walletList, new Comparator<Wallet>() {
+            @Override
+            public int compare(Wallet o1, Wallet o2) {
+                if (o1.getFunds() > o2.getFunds()) {
+                    return 1;
+                }else if (o1.getFunds() < o2.getFunds()) {
+                    return -1;
+                }
+                return 0;
+            }
+        });
+        return walletList;
+    }
+
+    @Override
+    public List<Wallet> sortByType(List<Wallet> walletList) {
+        Collections.sort(walletList, new Comparator<Wallet>() {
+            @Override
+            public int compare(Wallet o1, Wallet o2) {
+                return o1.getType().compareTo(o2.getType());
+            }
+        });
+        return walletList;
+    }
 
     @Override
     @Transactional
@@ -69,4 +119,50 @@ public class WalletServiceImpl implements WalletService {
         toWallet.setFunds(toWallet.getFunds() + money);
         update(toWallet);
     }
+
+    @Override
+    public void exchange(long numberFrom, long numberTo, double money) {
+        Wallet fromWallet = walletDao.getWalletByNumber(numberFrom);
+        Wallet toWallet = walletDao.getWalletByNumber(numberTo);
+
+        if (fromWallet.getWalletCurrency().equals("USD")  && toWallet.getWalletCurrency().equals("UAH")) {
+            fromWallet.setFunds(fromWallet.getFunds() - money);
+            toWallet.setFunds(toWallet.getFunds() + (money * 27));
+            update(fromWallet);
+            update(toWallet);
+        }
+        if (fromWallet.getWalletCurrency().equals("USD") && toWallet.getWalletCurrency().equals("EUR")) {
+
+            fromWallet.setFunds(fromWallet.getFunds() - money);
+            toWallet.setFunds(toWallet.getFunds() + (money * 1.12));
+            update(fromWallet);
+            update(toWallet);
+        }
+        if (fromWallet.getWalletCurrency().equals("UAH") && toWallet.getWalletCurrency().equals("EUR")) {
+            fromWallet.setFunds(fromWallet.getFunds() - money);
+            toWallet.setFunds(toWallet.getFunds() + (money / 30.24));
+            update(fromWallet);
+            update(toWallet);
+        }
+        if (fromWallet.getWalletCurrency().equals("UAH") && toWallet.getWalletCurrency().equals("USD")) {
+            fromWallet.setFunds(fromWallet.getFunds() - money);
+            toWallet.setFunds(toWallet.getFunds() + (money / 27));
+            update(fromWallet);
+            update(toWallet);
+        }
+        if (fromWallet.getWalletCurrency().equals("EUR") && toWallet.getWalletCurrency().equals("UAH")) {
+            fromWallet.setFunds(fromWallet.getFunds() - money);
+            toWallet.setFunds(toWallet.getFunds() + (money * 30.24));
+            update(fromWallet);
+            update(toWallet);
+        }
+        if (fromWallet.getWalletCurrency().equals("EUR") && toWallet.getWalletCurrency() == "USD") {
+            fromWallet.setFunds(fromWallet.getFunds() - money);
+            toWallet.setFunds(toWallet.getFunds() + (money * 1.12));
+            update(fromWallet);
+            update(toWallet);
+        }
+    }
+
+
 }

@@ -26,14 +26,10 @@ public class PaymentsController {
     }
 
     @GetMapping("/exchange")
-    public String showExchangePage() {
+    public String showExchangePage(Model model, Principal principal) {
+        Users user = usersService.getUserByName(principal.getName());
+        model.addAttribute("wallets", walletService.getAll(user.getId()));
         return "exchangePage";
-    }
-
-    @GetMapping("/exchange/{number}")
-    public String exchangeNumber(@PathVariable("number") long number, Model model){
-        model.addAttribute("wallet", walletService.getByNumber(number));
-        return "exchangePageNumber";
     }
 
     @GetMapping("/transfer")
@@ -42,6 +38,14 @@ public class PaymentsController {
         model.addAttribute("wallets", walletService.getAll(user.getId()));
         return "transferPage";
     }
+
+    @GetMapping("/exchange/{number}")
+    public String exchangeNumber(@PathVariable("number") long number, Model model){
+        model.addAttribute("wallet", walletService.getByNumber(number));
+        return "exchangePageNumber";
+    }
+
+
 
     @GetMapping("/transfer/{number}")
     public String transferNumber(@PathVariable("number") long number, Model model){
@@ -58,6 +62,14 @@ public class PaymentsController {
         return "redirect:/payments/transfer";
     }
 
+    @PostMapping("/transfer/moneyExchange")
+    public String moneyExchange(@ModelAttribute("fromNumber") String fromNumber,
+                                @ModelAttribute("numberTo") String numberTo,
+                                @ModelAttribute("money") String money,
+                                Model model) {
+        walletService.exchange(Long.parseLong(fromNumber), Long.parseLong(numberTo), Double.parseDouble(money));
+        return "redirect:/payments/transfer";
+    }
 
     @GetMapping("/refill")
     public String showRefillPage(){

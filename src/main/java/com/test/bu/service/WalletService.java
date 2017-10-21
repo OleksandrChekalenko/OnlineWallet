@@ -18,9 +18,17 @@ public interface WalletService {
 
     long getWalletsInDB();
 
+    List<Wallet> sortByNumber(List<Wallet> walletList);
 
+    List<Wallet> sortByCurrency(List<Wallet> walletList);
+
+    List<Wallet> sortByFunds(List<Wallet> walletList);
+
+    List<Wallet> sortByType(List<Wallet> walletList);
 
     List<Long> getAllWalletNumbers();
 
     void transfer(long numberFrom, long numberTo, double money);
+
+    void exchange(long numberFrom, long numberTo, double money);
 }

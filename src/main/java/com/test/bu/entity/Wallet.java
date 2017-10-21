@@ -85,7 +85,12 @@ public class Wallet {
         sb.append("id=").append(id);
         sb.append(", number=").append(number);
         sb.append(", type='").append(type).append('\'');
+        sb.append(", funds=").append(funds);
+        sb.append(", walletCurrency='").append(walletCurrency).append('\'');
+        sb.append(", users=").append(users);
         sb.append('}');
         return sb.toString();
     }
+
+
 }

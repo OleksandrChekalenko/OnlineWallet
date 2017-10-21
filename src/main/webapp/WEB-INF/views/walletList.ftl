@@ -7,15 +7,35 @@
 <body class="container">
 <#include "templates/header3.ftl">
 <br><br><br>
+
 <div  <#--class="table-responsive"--> id="margin">
+
+    <form action="/wallet/wallets/sortByNumber" method="get" name="wallets" class="form-group">
+            <button id="button" type="submit">Sort by number</button>
+    </form>
+    <br>
+    <br>
+    <br>
     <#--<caption>Wallets list</caption>-->
     <table class="table table-striped">
         <tr>
             <#--<th>Id</th>-->
-            <th>Number</th>
-            <th>Type</th>
-                <th>Funds</th>
-            <th>Currency</th>
+            <th><form action="/wallet/wallets/sortByNumber" method="get" name="wallets" class="form-group">
+                <button type="submit">Number</button>
+            </form>
+            </th>
+            <th><form action="/wallet/wallets/sortByType" method="get" name="wallets" class="form-group">
+                <button type="submit">Type</button>
+            </form>
+            </th>
+                <th><form action="/wallet/wallets/sortByFunds" method="get" name="wallets" class="form-group">
+                    <button type="submit">Funds</button>
+                </form>
+                </th>
+            <th><form action="/wallet/wallets/sortByCurrency" method="get" name="wallets" class="form-group">
+                <button  type="submit">Currency</button>
+            </form>
+            </th>
             <th>Button</th>
             <th>Button</th>
         </tr>

@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -38,6 +40,41 @@ public class WalletController {
     public String getAllWallets(Model model, Principal principal) {
         Users user = usersService.getUserByName(principal.getName());
         model.addAttribute("wallets", walletService.getAll(user.getId()));
+        return "walletList";
+    }
+
+    /*@PostMapping("/wallets/sortByNumber")
+    public String getAllWalletsSortByNumber(Model model, Principal principal) {
+        Users user = usersService.getUserByName(principal.getName());
+        List<Wallet> walletList = walletService.getAll(user.getId());
+        Collections.sort(walletList);
+        model.addAttribute()
+    }*/
+    @GetMapping("/wallets/sortByNumber")
+    public String sortWalletsByNumber(Model model, Principal principal){
+        model.addAttribute("wallets",walletService.sortByNumber(
+                                        walletService.getAll(usersService.getUserByName(principal.getName()).getId())));
+        return "walletList";
+    }
+
+    @GetMapping("/wallets/sortByCurrency")
+    public String sortWalletsByCurrency(Model model, Principal principal) {
+        model.addAttribute("wallets", walletService.sortByCurrency(
+                                        walletService.getAll(usersService.getUserByName(principal.getName()).getId())));
+        return "walletList";
+    }
+
+    @GetMapping("/wallets/sortByFunds")
+    public String sortWalletsByFunds(Model model, Principal principal) {
+        model.addAttribute("wallets", walletService.sortByFunds(
+                walletService.getAll(usersService.getUserByName(principal.getName()).getId())));
+        return "walletList";
+    }
+
+    @GetMapping("/wallets/sortByType")
+    public String sortWalletsByType(Model model, Principal principal) {
+        model.addAttribute("wallets", walletService.sortByType(
+                walletService.getAll(usersService.getUserByName(principal.getName()).getId())));
         return "walletList";
     }
 
