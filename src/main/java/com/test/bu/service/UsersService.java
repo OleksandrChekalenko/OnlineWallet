@@ -12,6 +12,11 @@ public interface UsersService {
 
     List<Users> getAll();
 
+    List<Users> sortUsersById(List<Users> usersList);
+    List<Users> sortUsersByName(List<Users> usersList);
+    List<Users> sortUsersByFirstName(List<Users> usersList);
+    List<Users> sortUsersByEmail(List<Users> usersList);
+
     void save(Users user);
 
     void delete(int id);

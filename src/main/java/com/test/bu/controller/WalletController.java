@@ -54,28 +54,28 @@ public class WalletController {
     public String sortWalletsByNumber(Model model, Principal principal){
         model.addAttribute("wallets",walletService.sortByNumber(
                                         walletService.getAll(usersService.getUserByName(principal.getName()).getId())));
-        return "walletList";
+        return "redirect:/wallet/wallets";
     }
 
     @GetMapping("/wallets/sortByCurrency")
     public String sortWalletsByCurrency(Model model, Principal principal) {
         model.addAttribute("wallets", walletService.sortByCurrency(
                                         walletService.getAll(usersService.getUserByName(principal.getName()).getId())));
-        return "walletList";
+        return "redirect:/wallet/wallets";
     }
 
     @GetMapping("/wallets/sortByFunds")
     public String sortWalletsByFunds(Model model, Principal principal) {
         model.addAttribute("wallets", walletService.sortByFunds(
                 walletService.getAll(usersService.getUserByName(principal.getName()).getId())));
-        return "walletList";
+        return "redirect:/wallet/wallets";
     }
 
     @GetMapping("/wallets/sortByType")
     public String sortWalletsByType(Model model, Principal principal) {
         model.addAttribute("wallets", walletService.sortByType(
                 walletService.getAll(usersService.getUserByName(principal.getName()).getId())));
-        return "walletList";
+        return "redirect:/wallet/wallets";
     }
 
     @GetMapping("/wallets/addWallet")
@@ -103,7 +103,7 @@ public class WalletController {
 
     @GetMapping("/edit/{NUMBER}")
     public String editPage(@PathVariable("NUMBER") long number, Model model) {
-        System.out.println("number = " + number);
+        /*System.out.println("number = " + number);*/
         model.addAttribute("wallet", walletService.getByNumber(number));
         return "editWallet";
     }
@@ -120,9 +120,10 @@ public class WalletController {
         Wallet wallet = walletService.getByNumber(number);
         Users userFromPrincipal = wallet.getUserId();
         if (user.getId() == userFromPrincipal.getId()) {
-            wallet.setUserId(null);
-            walletService.update(wallet);
+            /*wallet.setUserId(null);
+            walletService.update(wallet);*/
             walletService.delete(number);
+            return "redirect:/wallet/wallets";
         }
         return "redirect:/wallet/wallets";
     }

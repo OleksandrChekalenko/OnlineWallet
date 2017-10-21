@@ -12,16 +12,29 @@
     <BR><BR><BR>
     <table class="table table-striped">
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>First name</th>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Phone number</th>
+            <th><form action="<#--/user/users/sortById-->" method="get" name="user" class="form-group">
+                <button type="submit">Id</button>
+            </form>
+            </th>
+            <th><form action="<#--/user/users/sortByName-->" method="get" name="user" class="form-group">
+                <button type="submit">Name</button>
+            </form></th>
+            <th><form action="<#--/user/users/sortByFirstName-->" method="get" name="user" class="form-group">
+                <button type="submit">First name</button>
+            </form></th>
+            <th><form action="<#--/user/users/sortByEmail-->" method="get" name="user" class="form-group">
+                <button type="submit">Email</button>
+            </form></th>
+            <th><form action="" method="get" name="user" class="form-group">
+                <button type="submit">Password</button>
+            </form></th>
+            <th><form action="" method="get" name="user" class="form-group">
+                <button type="submit">Phone number</button>
+            </form></th>
             <th>Action</th>
             <th>Action</th>
         </tr>
-    <#list usersList as users>
+    <#list userList as users>
         <tr>
             <td>${users.id}</td>
             <td>${users.name}</td>

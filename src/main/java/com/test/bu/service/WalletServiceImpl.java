@@ -34,7 +34,7 @@ public class WalletServiceImpl implements WalletService {
     @Override
     @Transactional
     public void delete(long number) {
-        walletDao.delete(Math.toIntExact(number));
+        walletDao.delete(number);
     }
 
     @Override

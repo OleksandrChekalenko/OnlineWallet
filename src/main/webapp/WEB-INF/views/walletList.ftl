@@ -11,15 +11,15 @@
 <div  <#--class="table-responsive"--> id="margin">
 
     <form action="/wallet/wallets/sortByNumber" method="get" name="wallets" class="form-group">
-            <button id="button" type="submit">Sort by number</button>
+        <button id="button" type="submit">Sort by number</button>
     </form>
     <br>
     <br>
     <br>
-    <#--<caption>Wallets list</caption>-->
+<#--<caption>Wallets list</caption>-->
     <table class="table table-striped">
         <tr>
-            <#--<th>Id</th>-->
+        <#--<th>Id</th>-->
             <th><form action="/wallet/wallets/sortByNumber" method="get" name="wallets" class="form-group">
                 <button type="submit">Number</button>
             </form>
@@ -28,10 +28,10 @@
                 <button type="submit">Type</button>
             </form>
             </th>
-                <th><form action="/wallet/wallets/sortByFunds" method="get" name="wallets" class="form-group">
-                    <button type="submit">Funds</button>
-                </form>
-                </th>
+            <th><form action="/wallet/wallets/sortByFunds" method="get" name="wallets" class="form-group">
+                <button type="submit">Funds</button>
+            </form>
+            </th>
             <th><form action="/wallet/wallets/sortByCurrency" method="get" name="wallets" class="form-group">
                 <button  type="submit">Currency</button>
             </form>
@@ -41,14 +41,14 @@
         </tr>
     <#list wallets as wallet>
         <tr>
-            <#--<td><a href="/wallet/${wallet.id}">${wallet.id}</a></td>-->
+        <#--<td><a href="/wallet/${wallet.id}">${wallet.id}</a></td>-->
             <td>${wallet.number}</td>
             <td>${wallet.type}</td>
             <td>${wallet.funds}</td>
-                <td>${wallet.walletCurrency}</td>
+            <td>${wallet.walletCurrency}</td>
             <td><a href="wallets/delete/${wallet.number?c}">Delete</a>
             <td><a href="/payments/refill/${wallet.number?c}">Refill</a>
-                <#--<a href="/edit/${wallet.number}">Edit</a>-->
+            <#--<a href="/edit/${wallet.number}">Edit</a>-->
             </td>
         </tr>
     </#list>
@@ -59,7 +59,7 @@
     <form action="wallets/addWallet" method="get" name="wallet" class="form-group">
         <button id="button" type="submit">New wallet</button>
     </form>
-    <#--<#include "templates/createWalletForm.ftl"/>-->
+<#--<#include "templates/createWalletForm.ftl"/>-->
 </div>
 </body>
 </html>

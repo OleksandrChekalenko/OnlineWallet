@@ -50,7 +50,31 @@ public class UsersController {
 
     @GetMapping("/users")
     public String getAllUsers(Model model) {
-        model.addAttribute("usersList", usersService.getAll());
+        model.addAttribute("userList", usersService.getAll());
+        return "usersList";
+    }
+
+    @GetMapping("/users/sortById")
+    public String sortUsersById(Model model) {
+        model.addAttribute("user", usersService.sortUsersById(usersService.getAll()));
+        return "redirect:/user/users";
+    }
+
+    @GetMapping("/users/sortByName")
+    public String sortUsersByName(Model model) {
+        model.addAttribute("user", usersService.sortUsersByName(usersService.getAll()));
+        return "usersList";
+    }
+
+    @GetMapping("/users/sortByFirstName")
+    public String sortUsersByFirstName(Model model) {
+        model.addAttribute("user", usersService.sortUsersByFirstName(usersService.getAll()));
+        return "usersList";
+    }
+
+    @GetMapping("/users/sortByEmail")
+    public String sortUsersByEmail(Model model) {
+        model.addAttribute("user", usersService.sortUsersByEmail(usersService.getAll()));
         return "usersList";
     }
 }
