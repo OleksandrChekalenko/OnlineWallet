@@ -85,8 +85,7 @@ public class PaymentsController {
 
     @PostMapping("/refill/addFunds")
     public String update(@ModelAttribute Wallet wallet) {
-       /*wallet.setFunds(wallet.getFunds() + funds);*/
-        walletService.update(wallet);
+        walletService.updateDel(wallet);
         return "redirect:/wallet/wallets";
     }
 

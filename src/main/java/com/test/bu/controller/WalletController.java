@@ -120,8 +120,8 @@ public class WalletController {
         Wallet wallet = walletService.getByNumber(number);
         Users userFromPrincipal = wallet.getUserId();
         if (user.getId() == userFromPrincipal.getId()) {
-            /*wallet.setUserId(null);
-            walletService.update(wallet);*/
+            wallet.setUserId(null);
+            walletService.update(wallet);
             walletService.delete(number);
             return "redirect:/wallet/wallets";
         }

@@ -93,10 +93,15 @@ public class WalletServiceImpl implements WalletService {
 
     @Override
     @Transactional
-    public void update(Wallet wallet) {
+    public void updateDel(Wallet wallet) {
         Wallet wallet1 = walletDao.getWalletByNumber(wallet.getNumber());
         wallet1.setFunds(wallet.getFunds());
         walletDao.update(wallet1);
+    }
+    @Override
+    @Transactional
+    public void update(Wallet wallet) {
+        walletDao.update(wallet);
     }
 
     @Override

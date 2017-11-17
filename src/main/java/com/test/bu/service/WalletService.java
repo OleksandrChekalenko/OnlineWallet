@@ -2,6 +2,7 @@ package com.test.bu.service;
 
 import com.test.bu.entity.Wallet;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface WalletService {
@@ -13,6 +14,9 @@ public interface WalletService {
     void save(Wallet wallet);
 
     void delete(long number);
+
+    @Transactional
+    void updateDel(Wallet wallet);
 
     void update(Wallet wallet);
 
