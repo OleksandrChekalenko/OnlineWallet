@@ -3,16 +3,14 @@ package com.test.bu.controller;
 
 import com.test.bu.entity.Users;
 import com.test.bu.entity.Wallet;
-import com.test.bu.service.UsersService;
-import com.test.bu.service.WalletService;
+import com.test.bu.service.interfaces.UsersService;
+import com.test.bu.service.interfaces.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -125,7 +123,7 @@ public class WalletController {
             walletService.delete(number);
             return "redirect:/wallet/wallets";
         }
-        return "redirect:/wallet/wallets";
+        return "errorPageDelete";
     }
 
 }

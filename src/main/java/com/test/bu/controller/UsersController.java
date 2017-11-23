@@ -1,17 +1,17 @@
 package com.test.bu.controller;
 
 
-import com.test.bu.entity.Role;
 import com.test.bu.entity.Users;
 import com.test.bu.entity.Wallet;
-import com.test.bu.service.RoleService;
-import com.test.bu.service.UsersService;
+import com.test.bu.service.interfaces.RoleService;
+import com.test.bu.service.interfaces.UsersService;
+import com.test.bu.service.interfaces.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -21,6 +21,8 @@ public class UsersController {
     private UsersService usersService;
     @Autowired
     private RoleService roleService;
+    @Autowired
+    private WalletService walletService;
 
     @GetMapping("edit/{id}")
     public String editPage(@PathVariable("id") int id, Model model) {
@@ -41,9 +43,13 @@ public class UsersController {
     }*/
 
     @GetMapping("users/delete/{id}")
-    public String deleteUser(@PathVariable("id") int id, Principal principal) {
+    public String deleteUser(@PathVariable("id") int id) {
         Users user = usersService.getById(id);
         roleService.delete(user.getName());
+        List<Wallet> allUserWalletsList = walletService.getAll(id);
+        for (Wallet wallet : allUserWalletsList) {
+            walletService.delete(wallet.getNumber());
+        }
         usersService.delete(id);
         return "redirect:/user/users";
     }

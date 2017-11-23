@@ -1,12 +1,12 @@
 package com.test.bu.service;
 
-import com.test.bu.dao.UsersDao;
+import com.test.bu.dao.interfaces.UsersDao;
 import com.test.bu.entity.Users;
+import com.test.bu.service.interfaces.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.text.CollationElementIterator;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;

@@ -1,10 +1,10 @@
-package com.test.bu.service;
+package com.test.bu.service.interfaces;
 
 import com.test.bu.entity.Users;
 
 import java.util.List;
 
-public interface UsersService {
+public interface UsersService extends IService<Users> {
 
     Users getById(int id);
 
@@ -17,7 +17,7 @@ public interface UsersService {
     List<Users> sortUsersByFirstName(List<Users> usersList);
     List<Users> sortUsersByEmail(List<Users> usersList);
 
-    void save(Users user);
+    //void save(Users user);
 
     void delete(int id);
 

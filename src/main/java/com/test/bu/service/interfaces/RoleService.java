@@ -1,4 +1,4 @@
-package com.test.bu.dao;
+package com.test.bu.service.interfaces;
 
 import com.test.bu.entity.Role;
 import com.test.bu.entity.Users;
@@ -6,11 +6,11 @@ import com.test.bu.entity.Users;
 /**
  * Created by Cagy on 10/17/2017.
  */
-public interface RoleDao {
+public interface RoleService extends IService<Role>{
 
-    void save(Role role);
+    //void save(Role role);
 
-    void delete(Role role);
+    void delete(String name);
 
     Role getRoleByName(String name);
 }

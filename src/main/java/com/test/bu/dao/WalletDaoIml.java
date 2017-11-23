@@ -1,11 +1,11 @@
 package com.test.bu.dao;
 
+import com.test.bu.dao.interfaces.WalletDao;
 import com.test.bu.entity.Wallet;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.security.Principal;
 import java.util.List;
 public class WalletDaoIml implements WalletDao {
 
@@ -17,6 +17,11 @@ public class WalletDaoIml implements WalletDao {
     @Transactional
     public void save(Wallet wallet) {
         entityManager.persist(wallet);
+    }
+
+    @Override
+    public void delete(Wallet entity) {
+
     }
 
     @Override

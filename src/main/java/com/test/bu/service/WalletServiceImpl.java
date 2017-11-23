@@ -1,7 +1,8 @@
 package com.test.bu.service;
 
-import com.test.bu.dao.WalletDao;
+import com.test.bu.dao.interfaces.WalletDao;
 import com.test.bu.entity.Wallet;
+import com.test.bu.service.interfaces.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

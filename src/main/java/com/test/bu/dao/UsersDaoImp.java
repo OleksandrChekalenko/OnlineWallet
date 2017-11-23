@@ -1,5 +1,6 @@
 package com.test.bu.dao;
 
+import com.test.bu.dao.interfaces.UsersDao;
 import com.test.bu.entity.Users;
 
 import javax.persistence.EntityManager;

@@ -1,8 +1,7 @@
 package com.test.bu.dao;
 
+import com.test.bu.dao.interfaces.RoleDao;
 import com.test.bu.entity.Role;
-import com.test.bu.entity.Users;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -24,6 +23,11 @@ public class RoleDaoImpl implements RoleDao {
     @Override
     public void delete(Role role) {
         entityManager.remove(role);
+    }
+
+    @Override
+    public Role update(Role entity) {
+        return null;
     }
 
     @Override
