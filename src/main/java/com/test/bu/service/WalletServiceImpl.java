@@ -133,31 +133,51 @@ public class WalletServiceImpl implements WalletService {
         Wallet fromWallet = walletDao.getWalletByNumber(numberFrom);
         Wallet toWallet = walletDao.getWalletByNumber(numberTo);
 
-        fromWallet.setFunds(fromWallet.getFunds() - money);
-        switch (fromWallet.getWalletCurrency()) {
-            case "USD":
-                switch (toWallet.getWalletCurrency()) {
-                    case "UAH": toWallet.setFunds(toWallet.getFunds() + (money * 27)); break;
-                    case "EUR": toWallet.setFunds(toWallet.getFunds() + (money * 1.12)); break;
-                    case "USD": toWallet.setFunds(toWallet.getFunds());break;
-                }
-            case "UAH":
-                switch (toWallet.getWalletCurrency()) {
-                    case "UAH": toWallet.setFunds(toWallet.getFunds());break;
-                    case "EUR": toWallet.setFunds(toWallet.getFunds() + (money / 30.24));break;
-                    case "USD": toWallet.setFunds(toWallet.getFunds() + (money / 27));break;
-                }
-            case "EUR":
-                switch (toWallet.getWalletCurrency()) {
-                    case "UAH": toWallet.setFunds(toWallet.getFunds() + (money * 30.24));break;
-                    case "EUR": toWallet.setFunds(toWallet.getFunds());break;
-                    case "USD": toWallet.setFunds(toWallet.getFunds() + (money * 1.12));break;
-                }
+        if (fromWallet.getFunds()>money) {
+            fromWallet.setFunds(fromWallet.getFunds() - money);
+            switch (fromWallet.getWalletCurrency()) {
+                case "USD":
+                    switch (toWallet.getWalletCurrency()) {
+                        case "UAH":
+                            toWallet.setFunds(toWallet.getFunds() + (money * 27));
+                            break;
+                        case "EUR":
+                            toWallet.setFunds(toWallet.getFunds() + (money * 1.12));
+                            break;
+                        case "USD":
+                            toWallet.setFunds(toWallet.getFunds());
+                            break;
+                    }
+                case "UAH":
+                    switch (toWallet.getWalletCurrency()) {
+                        case "UAH":
+                            toWallet.setFunds(toWallet.getFunds());
+                            break;
+                        case "EUR":
+                            toWallet.setFunds(toWallet.getFunds() + (money / 30.24));
+                            break;
+                        case "USD":
+                            toWallet.setFunds(toWallet.getFunds() + (money / 27));
+                            break;
+                    }
+                case "EUR":
+                    switch (toWallet.getWalletCurrency()) {
+                        case "UAH":
+                            toWallet.setFunds(toWallet.getFunds() + (money * 30.24));
+                            break;
+                        case "EUR":
+                            toWallet.setFunds(toWallet.getFunds());
+                            break;
+                        case "USD":
+                            toWallet.setFunds(toWallet.getFunds() + (money * 1.12));
+                            break;
+                    }
 
+            }
+
+            update(fromWallet);
+            update(toWallet);
         }
-        update(fromWallet);
-        update(toWallet);
-
                        /* if (fromWallet.getWalletCurrency().equals("USD") && toWallet.getWalletCurrency().equals("UAH")) {
                             fromWallet.setFunds(fromWallet.getFunds() - money);
                             toWallet.setFunds(toWallet.getFunds() + (money * 27));
