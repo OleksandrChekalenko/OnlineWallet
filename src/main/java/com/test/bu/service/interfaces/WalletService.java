@@ -1,17 +1,17 @@
-package com.test.bu.service;
+package com.test.bu.service.interfaces;
 
 import com.test.bu.entity.Wallet;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
-public interface WalletService {
+public interface WalletService extends IService<Wallet>{
 
     Wallet getByNumber(long number);
 
     List<Wallet> getAll(int user);
 
-    void save(Wallet wallet);
+    //void save(Wallet wallet);
 
     void delete(long number);
 
