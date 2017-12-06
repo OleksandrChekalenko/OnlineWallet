@@ -133,7 +133,7 @@ public class WalletServiceImpl implements WalletService {
         Wallet fromWallet = walletDao.getWalletByNumber(numberFrom);
         Wallet toWallet = walletDao.getWalletByNumber(numberTo);
 
-        if (fromWallet.getFunds()>money) {
+        if (fromWallet.getFunds() > money) {
             fromWallet.setFunds(fromWallet.getFunds() - money);
             switch (fromWallet.getWalletCurrency()) {
                 case "USD":
@@ -148,6 +148,7 @@ public class WalletServiceImpl implements WalletService {
                             toWallet.setFunds(toWallet.getFunds());
                             break;
                     }
+                    break;
                 case "UAH":
                     switch (toWallet.getWalletCurrency()) {
                         case "UAH":
@@ -160,6 +161,7 @@ public class WalletServiceImpl implements WalletService {
                             toWallet.setFunds(toWallet.getFunds() + (money / 27));
                             break;
                     }
+                    break;
                 case "EUR":
                     switch (toWallet.getWalletCurrency()) {
                         case "UAH":
@@ -172,51 +174,16 @@ public class WalletServiceImpl implements WalletService {
                             toWallet.setFunds(toWallet.getFunds() + (money * 1.12));
                             break;
                     }
+                    break;
 
             }
 
             update(fromWallet);
             update(toWallet);
         }
-                       /* if (fromWallet.getWalletCurrency().equals("USD") && toWallet.getWalletCurrency().equals("UAH")) {
-                            fromWallet.setFunds(fromWallet.getFunds() - money);
-                            toWallet.setFunds(toWallet.getFunds() + (money * 27));
-                            update(fromWallet);
-                            update(toWallet);
-                        }
-                        if (fromWallet.getWalletCurrency().equals("USD") && toWallet.getWalletCurrency().equals("EUR")) {
 
-                            fromWallet.setFunds(fromWallet.getFunds() - money);
-                            toWallet.setFunds(toWallet.getFunds() + (money * 1.12));
-                            update(fromWallet);
-                            update(toWallet);
-                        }
-                        if (fromWallet.getWalletCurrency().equals("UAH") && toWallet.getWalletCurrency().equals("EUR")) {
-                            fromWallet.setFunds(fromWallet.getFunds() - money);
-                            toWallet.setFunds(toWallet.getFunds() + (money / 30.24));
-                            update(fromWallet);
-                            update(toWallet);
-                        }
-                        if (fromWallet.getWalletCurrency().equals("UAH") && toWallet.getWalletCurrency().equals("USD")) {
-                            fromWallet.setFunds(fromWallet.getFunds() - money);
-                            toWallet.setFunds(toWallet.getFunds() + (money / 27));
-                            update(fromWallet);
-                            update(toWallet);
-                        }
-                        if (fromWallet.getWalletCurrency().equals("EUR") && toWallet.getWalletCurrency().equals("UAH")) {
-                            fromWallet.setFunds(fromWallet.getFunds() - money);
-                            toWallet.setFunds(toWallet.getFunds() + (money * 30.24));
-                            update(fromWallet);
-                            update(toWallet);
-                        }
-                        if (fromWallet.getWalletCurrency().equals("EUR") && toWallet.getWalletCurrency() == "USD") {
-                            fromWallet.setFunds(fromWallet.getFunds() - money);
-                            toWallet.setFunds(toWallet.getFunds() + (money * 1.12));
-                            update(fromWallet);
-                            update(toWallet);
-                        }*/
-        }
     }
+}
 
 
 
