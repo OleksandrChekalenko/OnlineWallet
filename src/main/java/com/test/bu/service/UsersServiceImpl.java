@@ -3,6 +3,7 @@ package com.test.bu.service;
 import com.test.bu.dao.interfaces.UsersDao;
 import com.test.bu.entity.Users;
 import com.test.bu.service.interfaces.UsersService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Service
 public class UsersServiceImpl implements UsersService {
+    private static final Logger logger = Logger.getLogger(UsersServiceImpl.class);
 
     @Autowired
     private UsersDao usersDao;
@@ -29,7 +31,14 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public List<Users> getAll() {
-        return usersDao.getAll();
+        List<Users> result;
+        try {
+            result = usersDao.getAll();
+        } catch (Exception e) {
+            logger.error("Something wrong with getAll method.", e);
+            result = Collections.EMPTY_LIST;
+        }
+        return result;
     }
 
     @Override
