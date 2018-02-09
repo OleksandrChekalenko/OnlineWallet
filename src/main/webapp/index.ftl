@@ -20,6 +20,7 @@
         .fig {
             text-align: center; /* Выравнивание по центру */
         }
+        body { background: url("images/walletHomePage.png")}
     </style>
 </head>
 <body class="container">
@@ -43,6 +44,6 @@
 
 
 
-<p class="fig"><img src="WEB-INF/resources/images/walletHomePage.png" alt="" ></p>
+<#--<p class="fig"><img src="images/walletHomePage.png" alt="" ></p>-->
 </body>
 </html>
