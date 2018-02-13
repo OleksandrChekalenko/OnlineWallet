@@ -17,18 +17,18 @@
             var rePassword = form.rePassword.value;
             var mailValid =  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-            if (name == "" || name == " ")
-                fail = "You did not enter your name."
-            else if (firstName == "" || firstName == " ")
-                fail = "You did not enter your fist name."
-            else if ( email == "")
-                fail = "You did not enter your email."
-            else if (mailValid.test(email) == false)
-                        fail = "Wrong mail"
-            else if ( password == "")
-                fail = "You did not enter your password."
-            else if ( password != rePassword)
-                fail = "You did not enter the same password."
+            if (name === "" || name === " ")
+                fail = "You did not enter your name.";
+            else if (firstName === "" || firstName === " ")
+                fail = "You did not enter your fist name.";
+            else if ( email === "")
+                fail = "You did not enter your email.";
+            else if (mailValid.test(email) === false)
+                        fail = "Wrong mail";
+            else if ( password === "")
+                fail = "You did not enter your password.";
+            else if ( password !== rePassword)
+                fail = "You did not enter the same password.";
 
 
             if (fail){
