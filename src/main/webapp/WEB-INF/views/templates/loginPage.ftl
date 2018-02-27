@@ -69,25 +69,48 @@
         }
     }
 </style>
+<head>
+
+    <script type="text/javascript">
+
+        function valid(form) {
+            var fail = false;
+            var name = form.name.value;
+            var password = form.password.value;
+
+            if (name === "" || name === " ")
+                fail = "You did not enter your name.";
+            else if ( password === "")
+                fail = "You did not enter your password.";
+
+            if (fail){
+                alert(fail);
+                return false;
+            } else {return true}
+
+        }
+
+</script>
+        </head>
 <body>
 
 <#include "header3.ftl">
 <br><br><br>
 
-
-<form action="/loginPage" method="post" id="margin2" class="form-group">
+<div id = "margin2">
+<form id="form" action="/loginPage" method="post"  class="form-group" onsubmit="valid(this)">
 
     <div class="container">
         <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="name">
+        <input type="text" placeholder="Enter Username" name="name" id="name">
 
         <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password">
+        <input type="password" placeholder="Enter Password" name="password" id="password">
 
         <button type="submit">Login</button>
         <#--<input type="checkbox" checked="checked"> Remember me-->
     </div>
 </form>
-
+</div>
 </body>
 </html>
